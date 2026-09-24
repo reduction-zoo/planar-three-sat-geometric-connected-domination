@@ -14,4 +14,5 @@ The theorem supports hardness attribution but cannot by itself be transcribed in
 
 ## Use history
 
-- 2026-09-23: extracted from round 001; no later application yet.
+- 2026-09-23: extracted from round 001.
+- 2026-09-23: round 002 used the missing-coordinate obligation to choose an explicit integer-coordinate local check; it passed locally but did not supply general wiring.
