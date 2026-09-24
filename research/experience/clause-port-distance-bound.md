@@ -14,4 +14,5 @@ Use wires or place ports of each clause within a radius-two region. A shared poi
 
 ## Use history
 
-- 2026-09-23: extracted from round 002; no later application yet.
+- 2026-09-23: extracted from round 002.
+- 2026-09-23: round 003 used the distance-two filter before its half-grid site search; only five of 542 non-overlapping placements survived the filter, and none supported both isolated equality sites in that finite family.
