@@ -2,6 +2,7 @@
 
 import importlib.util
 import json
+import sys
 from pathlib import Path
 
 import networkx as nx
@@ -15,6 +16,8 @@ spec.loader.exec_module(bridge)
 
 
 def checked_layout(core):
+    # ponytail: tsmpy recurses through faces; use an iterative drawing backend if very large inputs exhaust the Python stack.
+    sys.setrecursionlimit(max(sys.getrecursionlimit(), 4 * len(core) + 1000))
     layout = TSM(core, uselp=False)
     drawn, pos = layout.G, layout.pos
     assert set(core) <= set(drawn)

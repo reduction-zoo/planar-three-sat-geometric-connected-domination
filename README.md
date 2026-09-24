@@ -1,6 +1,6 @@
 # Planar 3-SAT → Geometric connected domination
 
-Independent research campaign. Active after 15 of 20 authorized rounds. An executable candidate exists, but its all-input drawing guarantee and independent large-target verification remain open; no complete result is claimed.
+Independent research campaign. Active after 16 of 20 authorized rounds. An executable candidate exists, but its all-input drawing guarantee and independent large-target verification remain open; no complete result is claimed.
 
 [State](campaigns/planar-three-sat-geometric-connected-domination/state.md) · [Question](campaigns/planar-three-sat-geometric-connected-domination/question.md)
 

@@ -39,11 +39,25 @@ def chain(m, cycle=False):
     return {"variables": n, "clauses": clauses, "embedding": rotation}
 
 
+def tree(m):
+    n = 2 * m + 1
+    clauses = []
+    rotation = {f"v{i}": [] for i in range(n)}
+    for i in range(m):
+        variables = (i, 2 * i + 1, 2 * i + 2)
+        clauses.append([variables[0] + 1, variables[1] + 1, -(variables[2] + 1)])
+        rotation[f"c{i}"] = [f"v{v}" for v in variables]
+        for v in variables:
+            rotation[f"v{v}"].append(f"c{i}")
+    return {"variables": n, "clauses": clauses, "embedding": rotation}
+
+
 if __name__ == "__main__":
     families = [("isolated", n, isolated(n)) for n in (1, 2, 5, 10, 20)]
     families += [("star", m, star(m)) for m in (1, 2, 5, 10, 20)]
     families += [("chain", m, chain(m)) for m in (1, 2, 5, 10, 20)]
     families += [("cycle", m, chain(m, True)) for m in (3, 5, 10, 20)]
+    families += [("tree", m, tree(m)) for m in (1, 2, 5, 10, 20)]
     largest = (0, 0, 0)
     for family, size, source in families:
         assert check.valid_source(source), (family, size, "invalid source")

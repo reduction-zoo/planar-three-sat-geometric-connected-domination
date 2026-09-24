@@ -1,6 +1,6 @@
 # Campaign state
 
-Status: active; resumed 2026-09-24 after recognizing that the prior practical verification obstacle was not a hard blocker. Budget: 20 rounds. Completed: 15; round 016 in progress after a retained drawing execution failure. Distinct construction route families attempted so far: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
+Status: active; resumed 2026-09-24 after recognizing that the prior practical verification obstacle was not a hard blocker. Budget: 20 rounds. Completed: 16. Distinct construction route families attempted so far: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
 Board source: d56f22aee71c281b1a9b7aa90e65a0d2607efdce.
 
 Capability probe (2026-09-23, local macOS): Python 3.12.14 at `/Users/xiweipan/.local/bin/python3` available; uv 0.12.17 at `/Users/xiweipan/.local/bin/uv` available; Z3 executable 5.1.0 at `/opt/homebrew/bin/z3` available; Kissat 4.0.4 at `/opt/homebrew/bin/kissat` available; cvc5, Minisat and CP-SAT executables absent; Typst 0.15.1 at `/opt/homebrew/bin/typst` available; Lean 4.34.0 and Lake 5.0.0 at `/opt/homebrew/bin/lean` and `/opt/homebrew/bin/lake` available; Mathlib installation unconfirmed (pending if formalization is requested); external writing skill `sci-brain:how-to-technical-writing` present at `/Users/xiweipan/.codex/plugins/cache/sci-brain/sci-brain/0.5.0/skills/how-to-technical-writing/SKILL.md`. Prepare locked Python bindings Z3 5.1.0.0 and NetworkX 3.7 in `uv.lock`.
@@ -15,7 +15,7 @@ Prior stopping diagnosis in [round 007](rounds/007/round.md) was premature: its 
 
 Experience closeout: 3 files created, 2 later updated, 0 pending: [omitted geometry](../../research/experience/lichtenstein-omitted-rational-embedding.md), [port distance](../../research/experience/clause-port-distance-bound.md), [route size](../../research/experience/grid-tiling-route-size.md). No publication or board changes.
 
-Next action: audit orthogonal drawing totality and output size; seek a deterministic polynomial replacement if needed. Reuse the committed Prepare corpus and oracle evidence.
+Next action: seek a certified polynomial orthogonal drawing implementation or proof for this family, and independently verify nontrivial target instances. Reuse the committed Prepare corpus and oracle evidence.
 
 | Round | Mechanism / scope | First check | Outcome | Evidence |
 |---|---|---|---|---|
@@ -34,3 +34,4 @@ Next action: audit orthogonal drawing totality and output size; seek a determini
 | 013 | Integrated F/G chain and exact sparse target-oracle repair | Fresh-process witness extraction and full prepared harness | interface supported; full target solving execution failure | [round](rounds/013/round.md) |
 | 014 | Independent CP-SAT flow target oracle and target-only greedy witness search | Five small target labels, then 1,596-point generated target | small checks supported; generated-target search execution failure | [round](rounds/014/round.md) |
 | 015 | Polynomial unit-contradiction shortcut, separate from general geometry | Independent source labels and actual negative F-target solve/extract | supported on all 14 prepared NO cases; large geometry pending | [round](rounds/015/round.md) |
+| 016 | Structured legal-source drawing stress and recursion repair | Biconnected cores and exact orthogonal routes for 24 cases | execution defect repaired; general guarantee pending | [round](rounds/016/round.md) |
