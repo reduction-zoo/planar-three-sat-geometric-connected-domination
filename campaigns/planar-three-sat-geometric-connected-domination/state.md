@@ -1,6 +1,6 @@
 # Campaign state
 
-Status: active; resumed 2026-09-24 after recognizing that the prior practical verification obstacle was not a hard blocker. Budget: 20 rounds. Completed: 18. Distinct construction route families attempted so far: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
+Status: active; resumed 2026-09-24 after recognizing that the prior practical verification obstacle was not a hard blocker. Budget: 20 rounds. Completed: 19. Distinct construction route families attempted so far: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
 Board source: d56f22aee71c281b1a9b7aa90e65a0d2607efdce.
 
 Capability probe (2026-09-23, local macOS): Python 3.12.14 at `/Users/xiweipan/.local/bin/python3` available; uv 0.12.17 at `/Users/xiweipan/.local/bin/uv` available; Z3 executable 5.1.0 at `/opt/homebrew/bin/z3` available; Kissat 4.0.4 at `/opt/homebrew/bin/kissat` available; cvc5, Minisat and CP-SAT executables absent; Typst 0.15.1 at `/opt/homebrew/bin/typst` available; Lean 4.34.0 and Lake 5.0.0 at `/opt/homebrew/bin/lean` and `/opt/homebrew/bin/lake` available; Mathlib installation unconfirmed (pending if formalization is requested); external writing skill `sci-brain:how-to-technical-writing` present at `/Users/xiweipan/.codex/plugins/cache/sci-brain/sci-brain/0.5.0/skills/how-to-technical-writing/SKILL.md`. Prepare locked Python bindings Z3 5.1.0.0 and NetworkX 3.7 in `uv.lock`.
@@ -15,7 +15,7 @@ Prior stopping diagnosis in [round 007](rounds/007/round.md) was premature: its 
 
 Experience closeout: 3 files created, 2 later updated, 0 pending: [omitted geometry](../../research/experience/lichtenstein-omitted-rational-embedding.md), [port distance](../../research/experience/clause-port-distance-bound.md), [route size](../../research/experience/grid-tiling-route-size.md). No publication or board changes.
 
-Next action: audit the composed proof and all-input implementation guarantees, then close within the two remaining rounds if the gaps cannot be repaired. Reuse the committed Prepare corpus and oracle evidence.
+Next action: final obligation and evidence audit in round 020; stop discovery at budget exhaustion if the drawing and independent large-target gaps remain. Reuse the committed Prepare corpus and oracle evidence.
 
 | Round | Mechanism / scope | First check | Outcome | Evidence |
 |---|---|---|---|---|
@@ -37,3 +37,4 @@ Next action: audit the composed proof and all-input implementation guarantees, t
 | 016 | Structured legal-source drawing stress and recursion repair | Biconnected cores and exact orthogonal routes for 24 cases | execution defect repaired; general guarantee pending | [round](rounds/016/round.md) |
 | 017 | Independent GIOTTO backend API and exact route audit, distinct drawing implementation | Bend-optimal routes on 111 prepared and 24 stress cores | finite drawings supported; all-input certification pending | [round](rounds/017/round.md) |
 | 018 | Noncanonical side-chain target outputs across varied source sizes | Independent target witness validity and fresh-process recovery on 12 cases | supported finite decoder coverage; general proof pending | [round](rounds/018/round.md) |
+| 019 | Core biconnectivity lemma via local face-cycle argument and small atlas | 38 connected and six disconnected planar subcubic graphs | supported structural premise; drawing library guarantee pending | [round](rounds/019/round.md) |
