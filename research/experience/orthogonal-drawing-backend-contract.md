@@ -1,0 +1,17 @@
+# Orthogonal drawing theorem and backend contract differ
+
+## Claim and applicability
+
+Tags: orthogonal drawing, min-cost flow, fixed capacity, polynomial runtime. A theorem guaranteeing polynomial orthogonal drawings does not certify an arbitrary backend implementing the same pipeline. tsmpy 0.9.3 uses capacities and compaction total flow fixed at `2**32`, and NetworkX network simplex. A generated-family argument must justify capacities and the implementation's worst-case runtime, or replace these components.
+
+## Evidence and status
+
+[Round 021](../../campaigns/planar-three-sat-geometric-connected-domination/rounds/021/round.md) demonstrates a two-face flow limit exactly. This is a dependency-level observation, not a source-instance counterexample or an impossibility result. No independent review.
+
+## Consequence for search
+
+Prefer a fully specified drawing algorithm with input-dependent integer bounds and a justified polynomial flow algorithm. Finite layout validation establishes neither totality nor a time bound.
+
+## Use history
+
+Created 2026-09-24 in round 021. Intended destination is the board's experience collection after separate authorization; no board write made.

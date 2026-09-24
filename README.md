@@ -1,6 +1,6 @@
 # Planar 3-SAT → Geometric connected domination
 
-Independent research campaign. The 20-round budget is exhausted without a verified complete reduction. An executable candidate exists, but its all-input drawing guarantee and independent nontrivial target verification remain open.
+Independent research campaign. The campaign resumed with 20 additional rounds (021–040); a complete reduction remains unverified. An executable candidate exists, but its all-input drawing guarantee and independent nontrivial target verification remain open.
 
 [State](campaigns/planar-three-sat-geometric-connected-domination/state.md) · [Question](campaigns/planar-three-sat-geometric-connected-domination/question.md)
 
