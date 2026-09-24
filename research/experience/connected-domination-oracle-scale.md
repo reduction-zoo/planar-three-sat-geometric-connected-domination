@@ -15,3 +15,4 @@ Use sparse graph construction and a connectivity model proportional to graph edg
 ## Use history
 
 - 2026-09-24: extracted from round 013; intended destination if promoted is the board's local shared experience collection, with no board edit during research.
+- 2026-09-24: round 014 tried an independent CP-SAT flow formulation; it matched five small target labels but returned no answer on a 1,596-point candidate target after an interrupted 5-minute-44-second run. A target-only greedy heuristic missed the budget by five to eight points. Neither observation changed the mathematical claim.

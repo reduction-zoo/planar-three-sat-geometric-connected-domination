@@ -1,6 +1,6 @@
 # Campaign state
 
-Status: active; resumed 2026-09-24 after recognizing that the prior practical verification obstacle was not a hard blocker. Budget: 20 rounds. Completed: 13. Distinct construction route families attempted so far: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
+Status: active; resumed 2026-09-24 after recognizing that the prior practical verification obstacle was not a hard blocker. Budget: 20 rounds. Completed: 14. Distinct construction route families attempted so far: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
 Board source: d56f22aee71c281b1a9b7aa90e65a0d2607efdce.
 
 Capability probe (2026-09-23, local macOS): Python 3.12.14 at `/Users/xiweipan/.local/bin/python3` available; uv 0.12.17 at `/Users/xiweipan/.local/bin/uv` available; Z3 executable 5.1.0 at `/opt/homebrew/bin/z3` available; Kissat 4.0.4 at `/opt/homebrew/bin/kissat` available; cvc5, Minisat and CP-SAT executables absent; Typst 0.15.1 at `/opt/homebrew/bin/typst` available; Lean 4.34.0 and Lake 5.0.0 at `/opt/homebrew/bin/lean` and `/opt/homebrew/bin/lake` available; Mathlib installation unconfirmed (pending if formalization is requested); external writing skill `sci-brain:how-to-technical-writing` present at `/Users/xiweipan/.codex/plugins/cache/sci-brain/sci-brain/0.5.0/skills/how-to-technical-writing/SKILL.md`. Prepare locked Python bindings Z3 5.1.0.0 and NetworkX 3.7 in `uv.lock`.
@@ -15,7 +15,7 @@ Prior stopping diagnosis in [round 007](rounds/007/round.md) was premature: its 
 
 Experience closeout: 3 files created, 2 later updated, 0 pending: [omitted geometry](../../research/experience/lichtenstein-omitted-rational-embedding.md), [port distance](../../research/experience/clause-port-distance-bound.md), [route size](../../research/experience/grid-tiling-route-size.md). No publication or board changes.
 
-Next action: try a different independent target-solving approach and audit drawing totality and output size. Reuse the committed Prepare corpus and oracle evidence.
+Next action: apply sound unit propagation to expose a verifiable negative target class, then audit drawing totality and output size. Reuse the committed Prepare corpus and oracle evidence.
 
 | Round | Mechanism / scope | First check | Outcome | Evidence |
 |---|---|---|---|---|
@@ -32,3 +32,4 @@ Next action: try a different independent target-solving approach and audit drawi
 | 011 | Scaled grid paths plus Clark side-chain points; independent-pendant variant tested separately | Exact adjacency/degree and forward witness on prepared graphs | side chains supported on 111; independent pendant variant refuted on case 1 | [round](rounds/011/round.md) |
 | 012 | Clark side-chain normalization and arbitrary-output decoder | Canonical output plus exact-budget side-chain alternatives on actual point sets | supported on 97 canonical and one alternate output; general proof pending | [round](rounds/012/round.md) |
 | 013 | Integrated F/G chain and exact sparse target-oracle repair | Fresh-process witness extraction and full prepared harness | interface supported; full target solving execution failure | [round](rounds/013/round.md) |
+| 014 | Independent CP-SAT flow target oracle and target-only greedy witness search | Five small target labels, then 1,596-point generated target | small checks supported; generated-target search execution failure | [round](rounds/014/round.md) |
