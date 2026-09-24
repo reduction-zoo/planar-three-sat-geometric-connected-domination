@@ -130,6 +130,10 @@ def place(connected):
     assert observed_edges == intended_edges, (len(observed_edges), len(intended_edges))
     leaves = clark_points(main, middle)
     assert len(leaves) == len(middle)
+    owner = {p: (edge, i) for edge, path in routes.items() for i, p in enumerate(path[2:-2])}
+    assert len(owner) == len(middle)
+    assert all(owner[leaves[q]][0] == owner[leaves[p]][0] and abs(owner[leaves[q]][1] - owner[leaves[p]][1]) == 1
+               for p in leaves for q in neighbors(p) if q in leaves)
     points = sorted(main | set(leaves))
     return points, original, internal, middle, leaves, routes
 
