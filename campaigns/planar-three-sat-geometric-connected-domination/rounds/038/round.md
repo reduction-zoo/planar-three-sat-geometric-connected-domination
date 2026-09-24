@@ -13,3 +13,7 @@ Experience extraction: update the backend-contract entry in the repair round wit
 ## Next action
 
 Round 039: preserve this counterexample, repair stable traversal and audit the compact branch, then retest cross-process reconstruction and the prepared loop. Independent focused re-review follows.
+
+## Retrospective accounting correction (2026-09-24)
+
+This independent-review stage was incorrectly charged as a research round. The finding and its chronology remain unchanged; see the [accounting audit](../../work/round-accounting-audit.md).

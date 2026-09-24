@@ -17,3 +17,7 @@ Experience extraction: no new file in this audit. Closeout found six distinct lo
 ## Next action
 
 Stop discovery and exit at the authorized budget. A future continuation would need additional round allocation, a certified all-input drawing implementation, and an independent solver that handles the nontrivial geometric targets before review.
+
+## Retrospective accounting correction (2026-09-24)
+
+This verification/closeout was incorrectly charged as a research round. Its evidence remains valid, but the budget-exhaustion claim above was false under the [session counting rule](../../work/round-accounting-audit.md). The historical record is retained rather than renumbered.
