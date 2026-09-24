@@ -407,9 +407,19 @@ obtained by exhaustive independent enumeration. The current complete
 forward/target-solve/recovery loop passed 195 witness outputs and fourteen exact
 negative outputs. Each of the 97 nontrivial geometric positive targets supplied
 two distinct witnesses. The empty source supplied one. Negative targets in this
-corpus are the actual one-point outputs of the unit-contradiction branch;
-no nontrivial geometric negative target has an independent certificate here.
+corpus are the actual one-point outputs of the unit-contradiction branch.
 The largest prepared target has 202,170 points.
+
+Two further unsatisfiable planar sources outside the prepared corpus survive unit
+propagation. Their public targets have 31,576 and 25,236 points. A target-only
+checker verifies the complete grid-path and side-point interface from their
+integer coordinates. Applying the reverse implication of [CCJ90, Lemmas 6.1–6.2]
+reduces a hypothetical connected dominating set to a connected vertex cover
+with budget $308$. In each recovered skeleton, articulation vertices, exact
+degree-two folds, and exhaustive search on the final eighteen vertices give
+the lower bound $240+57+12=309>308$. The two #smallcaps[no-solution] answers
+therefore have structural certificates. These use the published implication;
+they are not unrestricted direct connected-domination solver runs.
 
 The target-only witness finder receives coordinates, not source assignments or
 candidate metadata. It recognizes a subdivided backbone, uses cover folding and
@@ -456,6 +466,7 @@ uv run --locked python "$campaign/rounds/018/alternate_witnesses.py"
 uv run --locked python "$campaign/rounds/032/test_templates.py"
 uv run --locked python "$campaign/rounds/033/test_layout.py"
 uv run --locked python "$campaign/rounds/039/check_reconstruction.py"
+uv run --locked python "$campaign/rounds/041/certify_negative.py"
 uv run --locked python \
   "$campaign/reviews/deterministic-repair/check_recovery.py"
 ```

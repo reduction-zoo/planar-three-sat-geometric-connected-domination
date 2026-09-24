@@ -16,4 +16,6 @@ Record [039](../rounds/039/round.md) introduced a substantive deterministic reco
 
 This does not change the candidate's review status or turn finite checks into a general proof. The sequence explains the apparent last-round result: the full prepared suite passed at record 037; review at 038 found a defect; the repair at 039 passed; re-review at 040 advanced it. Two of those last three records were stages that should not have consumed research rounds. Completion, rather than exhaustion, is the reason to stop discovery now.
 
+Subsequent record 041 uses one of the unspent slots for an expanded negative search family. The minimum correction therefore leaves at least two slots unspent; the exact count may be higher because borderline earlier records were not adjudicated here.
+
 The commit timestamps show this sequence but cannot establish absence of all other errors. A fresh 2026-09-24 run of `uv run --locked python -B campaigns/planar-three-sat-geometric-connected-domination/reviews/deterministic-repair/check_recovery.py` reproduced a 12,418-point, K=6,515 target under F seeds 7/99 and recovered `[false, true]` under G seeds 123/456. That is one finite independent-target check, not a substitute for expert proof review. No board or publication action was taken in this correction.

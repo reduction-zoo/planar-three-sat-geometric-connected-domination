@@ -21,6 +21,10 @@ Commands are given in the manuscript. `typst compile work/manuscript.typ work/ma
 
 All eight pages were inspected. After the final editorial revision, unchanged pages 1–3 retained their prior inspection; pages 4–8 were re-rendered and re-inspected. No layout defect remains identified. This is document inspection, not an additional mathematical or formal certificate.
 
+## Added negative-case evidence (2026-09-24)
+
+The reviewed F/G maps and general proof were unchanged. The verification appendix now records two target-only structural negative certificates outside the original Prepare corpus and gives their reproduction command. Typst compiled the revised source without diagnostics. PDFKit rendered eight pages at 595 × 841 pt; the updated hashes are in `sha256.txt`. Pages 7–8 were visually re-inspected: the new certificate paragraph, native math inequality, reference, command block and final reproduction text are legible, with no clipping or separated setup. Pages 1–6 are unaffected by this appendix edit. The new certificate itself has not received an independent reviewer assessment; the prior advance verdict applies to the unchanged maps and general proof.
+
 ## Final experience audit
 
 Three distinct entries created in rounds 021–040: backend contract, separator connected-domination oracle, finite port-template stretching. Two pre-existing entries updated: connected-domination oracle scale and tsmpy face recursion. Further updates within the new entries include the independently found hash-order counterexample. Nine local entries total; zero pending extraction; zero board promotions. Remaining limits and unsuccessful runs are preserved rather than converted into solver answers.
