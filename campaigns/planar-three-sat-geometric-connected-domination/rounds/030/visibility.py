@@ -2,6 +2,13 @@
 import networkx as nx
 
 
+def ordered_subgraph(graph, nodes):
+    result = nx.Graph()
+    result.add_nodes_from(v for v in graph if v in nodes)
+    result.add_edges_from((u, v) for u, v in graph.edges if u in nodes and v in nodes)
+    return result
+
+
 def orient(graph):
     assert nx.is_biconnected(graph) and len(graph) >= 3
     planar, embedding = nx.check_planarity(graph)
@@ -12,12 +19,12 @@ def orient(graph):
     order = nx.shortest_path(without, s, t)
     while len(order) < len(graph):
         position = {v: i for i, v in enumerate(order)}
-        outside = graph.subgraph(set(graph) - set(order))
+        outside = ordered_subgraph(graph, set(graph) - set(order))
         component = next(iter(nx.connected_components(outside)))
         boundary = sorted({u for v in component for u in graph[v] if u in position}, key=position.get)
         assert len(boundary) >= 2
         a, b = boundary[:2]
-        ear_graph = graph.subgraph(component | {a, b}).copy()
+        ear_graph = ordered_subgraph(graph, component | {a, b})
         if ear_graph.has_edge(a, b):
             ear_graph.remove_edge(a, b)
         ear = nx.shortest_path(ear_graph, a, b)[1:-1]

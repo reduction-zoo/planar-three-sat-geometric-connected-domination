@@ -1,0 +1,79 @@
+[
+  {
+    "mode": "forced-fallback",
+    "case": 1,
+    "points": 330596,
+    "K": 165357,
+    "selected": 165357,
+    "target_sha256": "a79349f193a7fd78c43a22ba09b9ab71fb5d3d278c49c3f36b306d3e7279d0b2",
+    "F_seeds": [
+      1,
+      2
+    ],
+    "G_seeds": [
+      2,
+      3
+    ],
+    "recovered": [
+      false
+    ]
+  },
+  {
+    "mode": "compact",
+    "case": 1,
+    "points": 1596,
+    "K": 857,
+    "selected": 857,
+    "target_sha256": "7c7257ef98c758b00606d302ef31fa06c6fd1c4872e3e4276ca271499af109ed",
+    "F_seeds": [
+      1,
+      2
+    ],
+    "G_seeds": [
+      2,
+      3
+    ],
+    "recovered": [
+      true
+    ]
+  },
+  {
+    "mode": "compact",
+    "case": 2,
+    "points": 6369,
+    "K": 3337,
+    "selected": 3337,
+    "target_sha256": "100191120879c4b14ecd198446a6f0dcc2940b748d2ecd9b2eaf5c4c479709df",
+    "F_seeds": [
+      1,
+      2
+    ],
+    "G_seeds": [
+      2,
+      3
+    ],
+    "recovered": [
+      true
+    ]
+  },
+  {
+    "mode": "compact",
+    "case": 5,
+    "points": 13958,
+    "K": 7285,
+    "selected": 7285,
+    "target_sha256": "16a8988d50ace122cb5748fed7ffd42b1cac480a8ddeda32e93f1db353fcee9b",
+    "F_seeds": [
+      1,
+      2
+    ],
+    "G_seeds": [
+      2,
+      3
+    ],
+    "recovered": [
+      true,
+      false
+    ]
+  }
+]

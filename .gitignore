@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 .lake/
+# Reproducible full target dumps; retain generators, sources, seeds and hashes.
+campaigns/*/reviews/*/target-*.json
+campaigns/*/reviews/*/fallback-target-*.json
+campaigns/*/reviews/*/isolates-target-*.json

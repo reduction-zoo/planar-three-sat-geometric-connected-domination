@@ -23,3 +23,7 @@ Round 028 found and repaired a separate floating-point external-face selection d
 Round 029 passed all 163 biconnected planar max-degree-four atlas graphs, but the simple reflex-corner termination argument does not by itself cover tsmpy's exterior-frame bridge and repeated-boundary face walk. The all-input claim remains open at that precise operation.
 
 Round 034 bypassed the remaining library-totality obligation with a deterministic finite compact-layout attempt (bounded core size, Python-line allowance, and exact output checks) followed by an explicit polynomial visibility fallback. Four forced-exhaustion layouts and all 111 prepared core layouts passed. This is a candidate construction/proof strategy, not yet independently reviewed.
+
+## Hash-order repair, 2026-09-24
+
+Independent review found a legal 1,292-core-vertex source whose fallback route lengths differed by 54,960 across process hash seeds, implying different target budgets. NetworkX filtered views can iterate their node-filter set; sorting the iterable passed to `subgraph` would not fix that behavior. Materialize induced nodes/edges in stable parent order. The compact branch also needs stable integer labels before NetworkX planar drawing, whose canonical-order routine pops eligible vertices from a set. [Round 039](../../campaigns/planar-three-sat-geometric-connected-domination/rounds/039/round.md) preserves the failure and cross-process regression, including real forced-fallback solve/recovery. Deterministic reconstruction is a separate obligation from geometric validity.

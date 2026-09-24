@@ -59,7 +59,11 @@ def checked_layout(core, operation_budget=50_000_000):
         layout = None
         try:
             sys.settrace(count_lines)
-            layout = TSM(core, uselp=False)
+            labels = dict(enumerate(core))
+            numbered = nx.relabel_nodes(core, {v: i for i, v in labels.items()}, copy=True)
+            layout = TSM(numbered, uselp=False)
+            layout.G = nx.relabel_nodes(layout.G, labels, copy=True)
+            layout.pos = {labels.get(v, v): point for v, point in layout.pos.items()}
         except Exception:
             pass
         finally:
