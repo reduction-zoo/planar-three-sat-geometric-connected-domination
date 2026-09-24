@@ -1,0 +1,1 @@
+111 nonempty biconnected cores: max original/drawn nodes, total route length, coordinate magnitude = (946, 997, 10224, 172)

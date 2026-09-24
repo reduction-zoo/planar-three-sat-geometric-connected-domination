@@ -43,11 +43,40 @@ def validate_layout(core, drawn, pos):
     return drawn, pos
 
 
-def checked_layout(core):
-    # ponytail: tsmpy recurses through faces; use an iterative drawing backend if very large inputs exhaust the Python stack.
-    sys.setrecursionlimit(max(sys.getrecursionlimit(), 4 * len(core) + 1000))
-    layout = TSM(core, uselp=False)
-    return validate_layout(core, layout.G, layout.pos)
+def checked_layout(core, operation_budget=50_000_000):
+    # A deterministic bounded attempt preserves compact layouts; visibility is total.
+    if len(core) <= 1000:
+        sys.setrecursionlimit(max(sys.getrecursionlimit(), 5000))
+        remaining = operation_budget
+        previous_trace = sys.gettrace()
+        def count_lines(frame, event, arg):
+            nonlocal remaining
+            if event == "line":
+                remaining -= 1
+                if remaining < 0:
+                    raise RuntimeError("compact layout operation allowance exhausted")
+            return count_lines
+        layout = None
+        try:
+            sys.settrace(count_lines)
+            layout = TSM(core, uselp=False)
+        except Exception:
+            pass
+        finally:
+            sys.settrace(previous_trace)
+        if layout is not None:
+            try:
+                assert len(layout.G) <= 100 * len(core)
+                assert set(layout.pos) == set(layout.G)
+                assert all(type(x) is int and abs(x) <= 100 * len(core) for p in layout.pos.values() for x in p)
+                return validate_layout(core, layout.G, layout.pos)
+            except Exception:
+                pass
+    spec = importlib.util.spec_from_file_location("visibility_layout", ROOT / "rounds/033/layout.py")
+    fallback = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(fallback)
+    drawn, pos = fallback.layout(core)
+    return validate_layout(core, drawn, pos)
 
 
 if __name__ == "__main__":
