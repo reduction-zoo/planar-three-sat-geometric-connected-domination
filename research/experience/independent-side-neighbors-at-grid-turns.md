@@ -16,3 +16,4 @@ Retain Clark's permitted side-vertex chains and prove their normalization, or ch
 
 - 2026-09-24: extracted from round 011; intended destination if promoted is the board's local shared experience collection, with no promotion or board edit during research.
 - 2026-09-24: round 012 used Clark's allowed side chains; one alternate exact-budget target witness containing side vertices was normalized and decoded, supporting this repair on a finite case.
+- 2026-09-24: round 018 independently validated and decoded 12 distinct side-chain target outputs across 1,596–202,170 points; this improves finite decoder coverage without proving all-output correctness.
