@@ -1,6 +1,6 @@
 # Campaign state
 
-Status: resumed on 2026-09-24 with 20 additional authorized rounds (021–040). Total authorized budget: 40 rounds; completed: 35. Distinct construction route families attempted: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
+Status: resumed on 2026-09-24 with 20 additional authorized rounds (021–040). Total authorized budget: 40 rounds; completed: 36. Distinct construction route families attempted: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
 Board source: d56f22aee71c281b1a9b7aa90e65a0d2607efdce.
 
 Capability probe (2026-09-23, local macOS): Python 3.12.14 at `/Users/xiweipan/.local/bin/python3` available; uv 0.12.17 at `/Users/xiweipan/.local/bin/uv` available; Z3 executable 5.1.0 at `/opt/homebrew/bin/z3` available; Kissat 4.0.4 at `/opt/homebrew/bin/kissat` available; cvc5, Minisat and CP-SAT executables absent; Typst 0.15.1 at `/opt/homebrew/bin/typst` available; Lean 4.34.0 and Lake 5.0.0 at `/opt/homebrew/bin/lean` and `/opt/homebrew/bin/lake` available; Mathlib installation unconfirmed (pending if formalization is requested); external writing skill `sci-brain:how-to-technical-writing` present at `/Users/xiweipan/.codex/plugins/cache/sci-brain/sci-brain/0.5.0/skills/how-to-technical-writing/SKILL.md`. Prepare locked Python bindings Z3 5.1.0.0 and NetworkX 3.7 in `uv.lock`.
@@ -55,3 +55,4 @@ Next action: independently solve nontrivial geometric targets and discharge the 
 | 033 | Global composition of stretched visibility templates | Exact embedding checks on 174 complete drawings | supported polynomial fallback argument; review pending | [round](rounds/033/round.md) |
 | 034 | Bounded compact attempt and explicit visibility fallback | Four forced-exhaustion and 111 prepared layouts | supported candidate totality argument; review pending | [round](rounds/034/round.md) |
 | 035 | Coordinate restrictions and forced-component ranks | Small witness/unknown checks, clause-bearing target | small checks supported; two execution failures | [round](rounds/035/round.md) |
+| 036 | Target-only backbone recognition and witness lifting | Actual 6,369-point target with two distinct outputs | supported: both full-graph witnesses decoded | [round](rounds/036/round.md) |
