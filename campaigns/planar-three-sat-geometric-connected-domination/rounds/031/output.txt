@@ -1,0 +1,2 @@
+integer bar drawings validated: 163
+prepared core bar drawings validated: 11

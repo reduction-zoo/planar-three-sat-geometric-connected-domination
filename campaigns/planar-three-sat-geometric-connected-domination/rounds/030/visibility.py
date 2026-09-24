@@ -40,3 +40,19 @@ def orient(graph):
             dual.add_edge(faces[v, u], faces[u, v])
     assert nx.is_directed_acyclic_graph(dual)
     return order, embedding, faces, dual, (s, t)
+
+
+def bars(graph):
+    order, embedding, faces, dual, (s, t) = orient(graph)
+    y = {v: i for i, v in enumerate(order)}
+    x = {face: i for i, face in enumerate(nx.topological_sort(dual))}
+    segments = {}
+    for a, b in graph.edges:
+        u, v = (a, b) if y[a] < y[b] else (b, a)
+        column = -1 if (u, v) == (s, t) else x[faces[v, u]]
+        segments[u, v] = (column, y[u], y[v])
+    vertex_bars = {}
+    for v in graph:
+        columns = [column for edge, (column, _, _) in segments.items() if v in edge]
+        vertex_bars[v] = (min(columns), max(columns), y[v])
+    return vertex_bars, segments
