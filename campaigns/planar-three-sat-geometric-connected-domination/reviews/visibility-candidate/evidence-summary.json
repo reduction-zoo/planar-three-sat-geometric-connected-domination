@@ -1,0 +1,14 @@
+{
+  "source_legal": true,
+  "source_satisfiable": true,
+  "core_sizes": [
+    1292,
+    1292
+  ],
+  "changed_positions": 4745,
+  "route_lengths": [
+    17124242,
+    17179202
+  ],
+  "implied_K_difference": 549600
+}

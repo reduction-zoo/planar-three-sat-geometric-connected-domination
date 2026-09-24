@@ -1,0 +1,70 @@
+# Independent review — revise
+
+Date: 2026-09-24. Decision: **revise**. The current executable maps fail the fixed deterministic-map requirement on a legal source outside the prepared corpus. This is a repairable implementation defect, not a reason to abandon the construction. Reconstruction of published reductions is explicitly permitted by the fixed question.
+
+## Scope and isolation
+
+Reviewed the actual files at candidate freeze `76552c2`; observed HEAD `12b632edfd00eca9e58447064accb6307fb4a470` adds the review plan. Read `AGENTS.md`, `README.md`, the research-review and test-behavior skills, `research/reduction.md`, the fixed question, `work/{algorithm.py,contract.md,proof.md,drawing-proof.md,preparation.md,verification.md}`, the transitive implementation in rounds 009–012 and 030–034, and relevant checker/evidence files. Candidate artifacts were not edited. All review scripts and artifacts are in this assigned directory. No agents were spawned.
+
+This is a fresh registered `research-reviewer` context: no proposer reasoning transcript was supplied. Actual enforcement was **instructions only**. The runtime exposed unrestricted filesystem access, network access and collaboration tools; there was no review-directory sandbox, tool denial or demonstrated nesting-depth cap. I complied with the read-only candidate/no-delegation boundaries. The parent confirmed registration `research-reviewer`, `fork_turns="none"`, and no explicit model override: this review used the inherited model route. The runtime identifies this agent as Codex based on GPT-6; the exact serving-model suffix is not exposed here. Model difference from the proposer is not asserted. These boundaries and model information are not evidence of correctness.
+
+## Blocking finding: hash-dependent fallback changes F
+
+Locations: `rounds/030/visibility.py:15–23`, particularly the filtered subgraph/component choice and the copied induced subgraph used for the next shortest path. NetworkX's installed `classes/coreviews.py:293–299` and `342–348` iterate the filter's set when it is relatively small. Node labels contain strings, whose hashes vary between Python processes. Passing a set into a filtered subgraph does not provide a stable node/traversal order.
+
+`work/drawing-proof.md`, “Ordering and visibility,” calls all searches and insertions deterministic; its final paragraph says F and G repeat the same deterministic drawing procedure. The missing premise is stable tie-breaking in the actual NetworkX traversal, not the existence of a valid st-order. The result contradicts these statements:
+
+- [fallback-source.json](fallback-source.json) has 15 variables and 14 clauses `[i, i+1, -(i+1)]`, for `i=1,...,14`, with an explicit planar incidence-path embedding. It is legal and satisfiable (indeed each clause is tautological). Unit propagation correctly does not reject it, and F does not remove tautological clauses from the subsequent construction.
+- Each real F process reaches a 1,292-node core, so `rounds/010/drawing.py:48` bypasses the compact attempt and uses the explicit fallback.
+- `PYTHONHASHSEED=1` and `2` produce different accepted layouts: 4,745 positions differ. Total unscaled lattice route length is respectively **17,124,242** and **17,179,202**.
+- This is an observable-map defect, not just different internal labels. `rounds/011/grid.py` scales the drawing by ten. Graph, leaf and edge counts are identical, so `work/algorithm.py:52` must produce budgets differing by **549,600**. For fixed abstract graph counts, total internal-point count is scaled core route length plus the fixed pendant-route contribution minus the fixed edge count.
+
+Evidence: [prefix-length-check.txt](prefix-length-check.txt), [fallback-prefix-1.json](fallback-prefix-1.json), [fallback-prefix-2.json](fallback-prefix-2.json), and independently checked [evidence-summary.json](evidence-summary.json). Reproduce from repository root with:
+
+```sh
+.venv/bin/python -B campaigns/planar-three-sat-geometric-connected-domination/reviews/visibility-candidate/inspect_fallback_prefix.py
+.venv/bin/python -B campaigns/planar-three-sat-geometric-connected-domination/reviews/visibility-candidate/check_prefix_evidence.py
+```
+
+The first command currently fails its equality assertion. It runs the **public F subprocess**, imports no candidate module in the check, and uses `sitecustomize` tracing to record the real return of `checked_layout` after its geometric validator. It then exits before point expansion. The tracer neither changes graph data nor substitutes a dependency/algorithm result. This is deliberately a prefix check, not a completed F/solver/G loop. The second command independently validates the source rotation and a satisfying assignment and checks the recorded discrepancy.
+
+Recovery consequence: `work/algorithm.py:60–64` reconstructs F in a fresh process, then interprets answer indices in its newly generated sorted point list. The proof of index correspondence is therefore unavailable. No specific invalid decoded witness is claimed here: neither gigantic target was expanded and independently solved. The proven failure of deterministic F already blocks acceptance, and the G risk must be covered by the repair.
+
+Required repair: give every order-affecting component choice, induced-subgraph construction and shortest-path tie a stable ordering, including dependency behavior. Merely sorting the iterable passed to `Graph.subgraph` is insufficient if the view subsequently stores it as a set. Audit both drawing branches. Update the determinism argument and retain a regression using this exact source under different hash seeds. After repair, require equal layout/route-length evidence here and a manageable actual fallback F/independent-target-solver/G check with different process seeds. Reuse unaffected verification; a full research restart is unnecessary.
+
+## Correctness assessment beyond that finding
+
+The combinatorial instance-map and recovery argument is credible subject to the above executable defect; no second counterexample was found. The cycle/triangle cover budget forces alternating variable parity and exactly two chosen clause vertices. Repeated occurrences use distinct ports with reversed bundle order; isolated variables retain cycles. The face construction's subdivision count and mandatory spoke vertices support the cover-budget extraction. The stated core biconnectivity argument addresses deletion of original, subdivision and face-cycle vertices, including the merged outer face. The finite round-019 checks are supporting evidence, not the general proof.
+
+The visibility ear insertion preserves an earlier/later neighbor for each internal vertex. Strict face potentials and the finite 46-pattern templates support an integer orthogonal drawing. The template validator checks the full pattern set and disjoint lattice paths. The scale-ten routing, short pendant paths, and actual geometric invariant checks support the Clark gadget interface. The side-point normalizer in `rounds/012/decode.py:27–67` tries the prefix/suffix transformations required by the cited argument; a selected connection to an endpoint crosses every pair in that interval and crosses at least one pair in both layers, paying for the additional missing middle point. Accepted moves check cardinality, domination and connectivity and strictly reduce selected side points. Canonical extraction then uses the connector count to bound the recovered connected cover.
+
+The one-point contradiction branch is sound ordinary unit propagation; NO-SOLUTION is a semantic output, never a timeout. Empty zero-variable input has a valid positive target and empty recovered assignment. Once deterministic reconstruction is fixed, the general equivalence is the stated basis for returning source NO-SOLUTION from target NO-SOLUTION. Existing independent negative evidence covers only unit contradictions, not the geometric negative branch; this limitation is correctly disclosed and does not independently violate the fixed requirement for small positive and negative checks.
+
+The abstract polynomial bounds remain plausible: graphs are linear in explicit source size, the fallback has O(V) coordinate magnitude and O(V²) route length, and normalization has polynomially many intervals/checks and strictly decreasing side-point count. The optional compact attempt is confined to bounded-size input and a fixed operation allowance with explicit accepted-output bounds. Hash-sensitive choices do not refute polynomial size, but they refute the claimed deterministic maps.
+
+## Independent checks and evidence reuse
+
+[check_determinism.py](check_determinism.py) exercised public F on prepared cases 1, 2 and 5 under three hash seeds each: all nine completed outputs agreed per case; see [determinism.json](determinism.json). Larger symmetric fallback prefix checks also agreed: [isolates-prefix-check.txt](isolates-prefix-check.txt) and [star-prefix-check.txt](star-prefix-check.txt). These passes did not cover the asymmetric incidence-path failure. The compact TSM branch is not certified deterministic by three finite public-source checks; its dependency traversal remains an explicit repair-audit target. The confirmed counterexample concerns the visibility branch, and no separate compact-branch nondeterminism counterexample is claimed.
+
+A full public F check on 30 isolated variables was manually terminated after the child exceeded approximately 10 GB RSS during point expansion. `check_fallback_determinism.py` retains that source recipe. This is a resource-limited run, not a semantic answer or a counterexample to polynomiality; no full fallback target/decoder evidence is claimed from it. The final `fallback-source.json` belongs to the asymmetric case above; the full-expansion script now uses separate `isolates-*` output paths so reproduction preserves that evidence.
+
+Reused, without rerunning the entire suites, `rounds/037/prepared-kernel.txt` (112 sources, 195 witness outputs, 14 exact negative outputs) and `side-chains.txt` (12 validated alternate outputs). Inspected the actual checker: it sends F's target to an independent target-only finder or exact oracle, validates rational-distance domination/connectivity, executes G separately, and checks the source answer. This is meaningful finite evidence. Its maximum six-variable corpus does not imply the large fallback branch has deterministic reconstruction. No tests or earlier campaign reports were weakened or rewritten.
+
+Shared local experience about drawing backend totality and oracle exhaustion was inspected through the supporting round records. Its cautions remain scoped correctly. I found no basis to treat prior success or retrieval as a theorem for this application.
+
+## Novelty
+
+Judgment: **published-construction reconstruction; no new hardness classification established or required**. Literature checked on 2026-09-24:
+
+- Clark, Colbourn and Johnson, [*Unit disk graphs*](https://cs.du.edu/~snarayan/sada/research/docs/res/unitdisk.pdf), §6, Theorem 6.1, pp. 173–176; Lemmas 6.1–6.2, pp. 175–176. Read the primary proof. It already proves grid connected-domination hardness and supplies the side-point replacement/counting argument used here. Its existential minimal-set formulation must be turned into executable local replacements, as this candidate attempts.
+- Lichtenstein, [*Planar formulae and their uses*](https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Lichtens.pdf), cited by the candidate at §4/Theorem 3 and by the fixed question at §6/Theorem 5. The PDF was reachable but its scan was not text-extractable through the available web response. Clark et al. explicitly attribute the earlier unit-disk hardness to Lichtenstein. I do not claim a new independent line-by-line audit of Lichtenstein's scanned proof.
+- Garey and Johnson, [*The rectilinear Steiner tree problem is NP-complete*](https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/JohnsonDavid1.pdf), cited Lemma 2. The scan was reachable but not text-extractable in this review. Its role as the connected planar cover source is corroborated by Clark et al.; the candidate's explicit local construction and extraction were assessed directly.
+- Tamassia–Tollis, [*A Unified Approach to Visibility Representations of Planar Graphs*](https://workshop.tcs.uj.edu.pl/mszana2015/gutkraw/unified.pdf), cited W-VISIBILITY p. 328 and Theorem 1 p. 330. Direct fetch timed out. Read the accessible [Duncan–Goodrich chapter](https://cs.brown.edu/people/rtamassi/gdhandbook/chapters/orthogonal.pdf), §7.2.3, Theorem 7.2/Figure 7.6, and §7.3.1, for the visibility and orthogonal-drawing context. The direct primary-paper audit remains incomplete here.
+
+A targeted search for visibility and connected-domination constructions did not establish whether the same full executable reconstruction already exists. That coverage remains unresolved and is not evidence of originality. The known theorem is not a stop criterion because the fixed question explicitly allows reconstruction. The contribution to assess after repair is reproducible F/G with explicit coordinates and recovery, not novelty of NP-hardness or visibility drawing.
+
+## Significance
+
+Judgment: **fits the fixed reconstruction objective if repaired**. The concrete benefit is an inspectable integer-coordinate composition, explicit decoder, finite routing certificates and an independent solver loop. No practical solver-efficiency claim is supported. The O(V²) expansion has substantial constants: the asymmetric fallback drawing already has over 17 million unscaled route units on a 1,292-node core, before tenfold scaling and side points. The observed resource limit makes large fallback end-to-end verification expensive. The fixed question has no stronger resource ceiling, so this is a disclosed limitation rather than an additional acceptance blocker.
+
+Advance is withheld for the deterministic-map defect. Repair that defect, verify its recovery consequences, and submit the changed argument and targeted evidence for follow-up review. This review does not authorize publication.

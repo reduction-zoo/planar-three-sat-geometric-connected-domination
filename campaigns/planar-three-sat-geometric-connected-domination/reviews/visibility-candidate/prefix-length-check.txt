@@ -1,0 +1,8 @@
+1 1292 7396
+2 1292 7396
+identical_layout: False
+Traceback (most recent call last):
+  File "/Users/xiweipan/Codes/reduction-zoo/planar-three-sat-geometric-connected-domination/campaigns/planar-three-sat-geometric-connected-domination/reviews/visibility-candidate/inspect_fallback_prefix.py", line 37, in <module>
+    assert records[0] == records[1], 'F fallback layout varies across hash seeds'
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: F fallback layout varies across hash seeds

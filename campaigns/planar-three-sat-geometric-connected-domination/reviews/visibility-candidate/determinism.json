@@ -1,0 +1,65 @@
+[
+  {
+    "case": 1,
+    "seed": "1",
+    "points": 1596,
+    "K": 857,
+    "sha256": "7c7257ef98c758b00606d302ef31fa06c6fd1c4872e3e4276ca271499af109ed"
+  },
+  {
+    "case": 1,
+    "seed": "2",
+    "points": 1596,
+    "K": 857,
+    "sha256": "7c7257ef98c758b00606d302ef31fa06c6fd1c4872e3e4276ca271499af109ed"
+  },
+  {
+    "case": 1,
+    "seed": "3",
+    "points": 1596,
+    "K": 857,
+    "sha256": "7c7257ef98c758b00606d302ef31fa06c6fd1c4872e3e4276ca271499af109ed"
+  },
+  {
+    "case": 2,
+    "seed": "1",
+    "points": 6369,
+    "K": 3337,
+    "sha256": "100191120879c4b14ecd198446a6f0dcc2940b748d2ecd9b2eaf5c4c479709df"
+  },
+  {
+    "case": 2,
+    "seed": "2",
+    "points": 6369,
+    "K": 3337,
+    "sha256": "100191120879c4b14ecd198446a6f0dcc2940b748d2ecd9b2eaf5c4c479709df"
+  },
+  {
+    "case": 2,
+    "seed": "3",
+    "points": 6369,
+    "K": 3337,
+    "sha256": "100191120879c4b14ecd198446a6f0dcc2940b748d2ecd9b2eaf5c4c479709df"
+  },
+  {
+    "case": 5,
+    "seed": "1",
+    "points": 13958,
+    "K": 7285,
+    "sha256": "16a8988d50ace122cb5748fed7ffd42b1cac480a8ddeda32e93f1db353fcee9b"
+  },
+  {
+    "case": 5,
+    "seed": "2",
+    "points": 13958,
+    "K": 7285,
+    "sha256": "16a8988d50ace122cb5748fed7ffd42b1cac480a8ddeda32e93f1db353fcee9b"
+  },
+  {
+    "case": 5,
+    "seed": "3",
+    "points": 13958,
+    "K": 7285,
+    "sha256": "16a8988d50ace122cb5748fed7ffd42b1cac480a8ddeda32e93f1db353fcee9b"
+  }
+]
