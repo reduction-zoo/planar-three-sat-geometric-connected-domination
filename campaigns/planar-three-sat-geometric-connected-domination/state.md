@@ -1,6 +1,6 @@
 # Campaign state
 
-Status: resumed on 2026-09-24 with 20 additional authorized rounds (021–040). Total authorized budget: 40 rounds; completed: 26. Distinct construction route families attempted: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
+Status: resumed on 2026-09-24 with 20 additional authorized rounds (021–040). Total authorized budget: 40 rounds; completed: 27. Distinct construction route families attempted: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
 Board source: d56f22aee71c281b1a9b7aa90e65a0d2607efdce.
 
 Capability probe (2026-09-23, local macOS): Python 3.12.14 at `/Users/xiweipan/.local/bin/python3` available; uv 0.12.17 at `/Users/xiweipan/.local/bin/uv` available; Z3 executable 5.1.0 at `/opt/homebrew/bin/z3` available; Kissat 4.0.4 at `/opt/homebrew/bin/kissat` available; cvc5, Minisat and CP-SAT executables absent; Typst 0.15.1 at `/opt/homebrew/bin/typst` available; Lean 4.34.0 and Lake 5.0.0 at `/opt/homebrew/bin/lean` and `/opt/homebrew/bin/lake` available; Mathlib installation unconfirmed (pending if formalization is requested); external writing skill `sci-brain:how-to-technical-writing` present at `/Users/xiweipan/.codex/plugins/cache/sci-brain/sci-brain/0.5.0/skills/how-to-technical-writing/SKILL.md`. Prepare locked Python bindings Z3 5.1.0.0 and NetworkX 3.7 in `uv.lock`.
@@ -46,3 +46,4 @@ Next action: independently solve nontrivial geometric targets and discharge the 
 | 024 | Exact connectivity-partition separator DP | 31 exhaustive small optima, then actual F target | supported: independent 1,596-point optimum 857 decoded | [round](rounds/024/round.md) |
 | 025 | Mandatory articulation pruning of separator states | 143 exhaustive atlas optima and clause-bearing target | small checks supported; 6,369-point execution failure | [round](rounds/025/round.md) |
 | 026 | Exact integral drawing-flow replacement | 80 exhaustive lower-bound flow optima | supported component; drawing integration pending | [round](rounds/026/round.md) |
+| 027 | Input-dependent exact shape and compaction flows | DAG/path premises and 14 exact layout checks | supported finite integration; totality pending | [round](rounds/027/round.md) |
