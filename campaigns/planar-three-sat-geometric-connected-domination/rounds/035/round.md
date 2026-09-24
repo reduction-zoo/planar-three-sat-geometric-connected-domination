@@ -6,4 +6,8 @@ Gap: the exact full-target encodings allow many side-chain choices and still fai
 
 ### Initial encoding attempt
 
-The small behavioral test passed, but the first coordinate restriction with full-size connectivity cuts did not return an answer on the 6,369-point target. It was manually interrupted while pursuing a smaller forced-component encoding; exit 130 is an execution failure, not an oracle answer or exhausted search. RSS was about 224 MB at the recorded probe. Preserve this initial implementation in the partial commit before changing the search representation.
+The small behavioral test passed, but the first coordinate restriction with full-size connectivity cuts did not return an answer on the 6,369-point target. It was manually interrupted while pursuing a smaller forced-component encoding; SIGINT made Z3 return inconclusive, then the caller assertion failed (exit 1); this is an execution failure, not an oracle answer or exhausted search. RSS was about 224 MB at the recorded probe. Preserve this initial implementation in the partial commit before changing the search representation.
+
+### Quotient rank attempt
+
+A second real encoding excluded degree-one choices from the allowed set, forced singleton dominators and articulation vertices, contracted connected forced sets, and imposed decreasing ranks toward one root. It passed the same small behavior checks, but did not finish the clause-bearing target and was interrupted (about 350 MB RSS at a probe). As before, interruption is an execution failure and supplies no target answer. The retained implementation is committed before trying a target-only recognition of subdivided backbones. The latter remains only a witness heuristic; all produced index sets must pass the actual target's full graph conditions.
