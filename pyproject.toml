@@ -3,6 +3,8 @@ name = "geometric-connected-domination-research"
 version = "0.1.0"
 requires-python = ">=3.12, <3.13"
 dependencies = [
+    "matplotlib>=3.10,<4",
     "networkx>=3.7",
+    "tsmpy==0.9.3",
     "z3-solver>=5.1.0.0",
 ]

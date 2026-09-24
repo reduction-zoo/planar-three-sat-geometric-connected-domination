@@ -75,39 +75,44 @@ def target_graph(target):
         raise ValueError("points must be distinct")
     graph = nx.Graph()
     graph.add_nodes_from(range(len(points)))
-    for i, j in itertools.combinations(range(len(points)), 2):
-        if sum((xy[i][d] - xy[j][d]) ** 2 for d in range(2)) <= 1:
-            graph.add_edge(i, j)
+    buckets = {}
+    for i, (x, y) in enumerate(xy):
+        cell = (x // 1, y // 1)
+        for dx in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                for j in buckets.get((cell[0] + dx, cell[1] + dy), ()):
+                    if (x - xy[j][0]) ** 2 + (y - xy[j][1]) ** 2 <= 1:
+                        graph.add_edge(i, j)
+        buckets.setdefault(cell, []).append(i)
     return graph, k
 
 
 def target_answer(target, forbidden=()):
     graph, k = target_graph(target)
     n = len(graph)
+    if not nx.is_connected(graph):
+        return "NO-SOLUTION"
     chosen = [z3.Bool(f"p{i}") for i in range(n)]
-    root = z3.Int("root")
     solver = z3.Solver()
-    solver.add(root >= 0, root < n, z3.PbLe([(v, 1) for v in chosen], k))
+    solver.add(z3.PbLe([(v, 1) for v in chosen], k))
     for i in graph:
         solver.add(z3.Or(*(chosen[j] for j in (i, *graph.neighbors(i)))))
-        solver.add(z3.Implies(root == i, chosen[i]))
-    reach = [[z3.Bool(f"reach_{step}_{i}") for i in graph] for step in range(n)]
-    for i in graph:
-        solver.add(reach[0][i] == z3.And(root == i, chosen[i]))
-    for step in range(1, n):
-        for i in graph:
-            solver.add(reach[step][i] == z3.Or(reach[step - 1][i], z3.And(chosen[i], z3.Or(*(reach[step - 1][j] for j in graph.neighbors(i))))))
-    for i in graph:
-        solver.add(z3.Implies(chosen[i], reach[-1][i]))
     for answer in forbidden:
         solver.add(z3.Or(*(chosen[i] != (i in answer) for i in graph)))
-    status = solver.check()
-    if status == z3.unsat:
-        return "NO-SOLUTION"
-    if status != z3.sat:
-        raise RuntimeError(f"target oracle inconclusive: {status}")
-    model = solver.model()
-    return [i for i in graph if z3.is_true(model.eval(chosen[i]))]
+    while True:
+        status = solver.check()
+        if status == z3.unsat:
+            return "NO-SOLUTION"
+        if status != z3.sat:
+            raise RuntimeError(f"target oracle inconclusive: {status}")
+        model = solver.model()
+        answer = {i for i in graph if z3.is_true(model.eval(chosen[i]))}
+        components = list(nx.connected_components(graph.subgraph(answer)))
+        if len(components) == 1:
+            return sorted(answer)
+        for component in components:
+            boundary = {v for u in component for v in graph.neighbors(u)} - component
+            solver.add(z3.Or(*(z3.Not(chosen[i]) for i in component), *(chosen[i] for i in boundary)))
 
 
 def target_witness_valid(target, answer):
