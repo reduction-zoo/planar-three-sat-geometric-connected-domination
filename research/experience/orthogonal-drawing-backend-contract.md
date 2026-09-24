@@ -17,3 +17,5 @@ Prefer a fully specified drawing algorithm with input-dependent integer bounds a
 Created 2026-09-24 in round 021. Intended destination is the board's experience collection after separate authorization; no board write made.
 
 Round 026 implemented an exact lower-bound flow solver and independently checked 80 tiny networks. Its O(QVE) bound is polynomial for orthogonal flow's O(V+E) supply. Rectangular compaction can use E units if its DAG/source-to-sink premises hold. These are scoped repairs, not a certification of the rest of tsmpy.
+
+Round 028 found and repaired a separate floating-point external-face selection defect on exact near-parallel integer rays at magnitude 10^18. The experimental backend uses exact rational slope order and retained all 14 finite layout checks. This is a component counterexample, not a generated-source counterexample.

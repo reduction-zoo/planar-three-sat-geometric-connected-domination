@@ -1,6 +1,7 @@
 """Experimental drawing pipeline with input-dependent exact flow computations."""
 import importlib.util
 from pathlib import Path
+from fractions import Fraction
 import networkx as nx
 from tsmpy.planarization import Planarization
 from tsmpy.orthogonalization import Orthogonalization
@@ -17,6 +18,18 @@ def nested(flow):
     for (u, v, key), value in flow.items():
         result.setdefault(u, {}).setdefault(v, {})[key] = value
     return result
+
+
+class ExactPlanarization(Planarization):
+    def get_external_face(self, pos):
+        corner = min(pos, key=lambda v: pos[v])
+        x, y = pos[corner]
+        def slope(v):
+            dx, dy = pos[v][0] - x, pos[v][1] - y
+            assert dx >= 0 and (dx or dy > 0)
+            return (dx == 0, Fraction(dy, dx) if dx else 0)
+        other = min(self.G[corner], key=slope)
+        return self.dcel.half_edges[corner, other].inc
 
 
 class ExactShape(Orthogonalization):
@@ -66,5 +79,5 @@ class ExactMetrics(Compaction):
 
 
 def layout(graph):
-    compaction = ExactMetrics(ExactShape(Planarization(graph)))
+    compaction = ExactMetrics(ExactShape(ExactPlanarization(graph)))
     return compaction.G, compaction.pos
