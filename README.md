@@ -1,11 +1,39 @@
 # Planar 3-SAT → Geometric connected domination
 
-**Ready for expert review.** Executable deterministic F/G and a general proof reconstruct the published planar-cover/grid connected-domination route. Independent review returned **advance** after a hash-order repair. The full prepared verification passed **112 instances and 209 target outputs**. The eight-page paper is compiled and visually inspected; this status is an agent assessment, not human certification.
+**Status:** `ready_for_expert_review` · **Research models:** `gpt-6-sol` (main), `gpt-6-astra` (later rounds) · **Submitted:** 2026-09-24
 
-[Paper PDF](campaigns/planar-three-sat-geometric-connected-domination/work/manuscript.pdf) · [Typst source](campaigns/planar-three-sat-geometric-connected-domination/work/manuscript.typ) · [Independent review](campaigns/planar-three-sat-geometric-connected-domination/reviews/deterministic-repair/review.md) · [State](campaigns/planar-three-sat-geometric-connected-domination/state.md) · [Question](campaigns/planar-three-sat-geometric-connected-domination/question.md) · [Algorithm](campaigns/planar-three-sat-geometric-connected-domination/work/algorithm.py) · [Proof](campaigns/planar-three-sat-geometric-connected-domination/work/proof.md) · [Drawing proof](campaigns/planar-three-sat-geometric-connected-domination/work/drawing-proof.md) · [Verification](campaigns/planar-three-sat-geometric-connected-domination/work/verification.md)
+This archive supplies deterministic polynomial-time construction and recovery for the fixed Planar 3-SAT to geometric connected domination contract. Its written proof claims that every valid target output recovers a valid source output, including NO-SOLUTION. It reconstructs a published hardness route; it does not claim a new hardness theorem or human acceptance.
 
-Verification includes 97 geometric positive targets with two independently found witnesses each, one trivial positive, 14 exactly solved trivial negatives, and 12 additional side-chain decoder checks. The largest prepared target has 202,170 points; an additional forced-fallback target with 330,596 points passed independent solve and cross-process recovery. Two [added negative cases](campaigns/planar-three-sat-geometric-connected-domination/rounds/041/round.md) produce nontrivial geometric targets with target-only structural NO certificates based on Clark's published reduction lemma.
+## Construction
 
-Reproduce with `uv sync --locked`, then run `uv run --locked python campaigns/planar-three-sat-geometric-connected-domination/work/check.py --self-test` and `uv run --locked python campaigns/planar-three-sat-geometric-connected-domination/work/check.py --candidate campaigns/planar-three-sat-geometric-connected-domination/work/algorithm.py`. The standalone small-target verifier is `work/verify.py --candidate work/algorithm.py` under the same campaign path. Round records preserve failed approaches and additional checks.
+Encode planar SAT as planar vertex cover, connect the cover gadgets through face cycles, then draw the connected graph on an integer grid. The unit-disk construction adds path and side points so a bounded connected dominating set corresponds to a bounded connected vertex cover. Recovery normalizes any valid target witness before extracting an assignment.
 
-There are 41 numbered records, but the [round-accounting audit](campaigns/planar-three-sat-geometric-connected-domination/work/round-accounting-audit.md) finds that at least three review/verification records were incorrectly charged to the research budget. Record 041 uses one remaining slot. The 021–040 continuation tested 15 computational mechanisms; the campaign explored four broad construction routes. Three experience entries were created and two pre-existing entries updated, with none pending extraction. The result is a reconstruction, with no new hardness or originality claim. No remote, publication or board update was made. Board source commit: d56f22aee71c281b1a9b7aa90e65a0d2607efdce.
+## Evidence
+
+- **Mathematical correctness and recovery: Written proof; independent agent review advanced.** The proof covers the fixed endpoint semantics and every valid target output. The focused reviewer found no remaining blocking gap after a deterministic-order repair. Two later geometric negative cases were not independently reviewed; the construction and proof were unchanged. Human expert acceptance remains pending. ([evidence](campaigns/planar-three-sat-geometric-connected-domination/reviews/deterministic-repair/review.md))
+- **Construction and recovery complexity: Written polynomial bounds.** The construction emits O((n+m)²) integer-coordinate points with O(log(n+m)) coordinate bits; recovery is polynomial in the input and target-output size. These bounds are not formally certified. ([evidence](campaigns/planar-three-sat-geometric-connected-domination/work/proof.md))
+- **Executable verification: Finite checks passed.** The prepared corpus has 112 source instances and 209 checked target outputs. It includes 97 geometric positive targets with two witnesses each, one trivial positive, and 14 trivial negatives. Two later nontrivial geometric negative targets have structural NO certificates based on the published reduction lemma, not a generic target UNSAT solve. Finite checks supplement rather than replace the general proof. ([evidence](campaigns/planar-three-sat-geometric-connected-domination/work/verification.md))
+- **Formal certification and maintainer acceptance: Pending / not performed.** No Lean kernel check, human expert acceptance, or upstream integration is recorded. ([evidence](campaigns/planar-three-sat-geometric-connected-domination/state.md))
+
+## Reproduce
+
+Run from the repository root:
+
+```sh
+uv sync --locked
+uv run --locked python campaigns/planar-three-sat-geometric-connected-domination/work/check.py --candidate campaigns/planar-three-sat-geometric-connected-domination/work/algorithm.py
+uv run --locked python campaigns/planar-three-sat-geometric-connected-domination/work/verify.py --candidate campaigns/planar-three-sat-geometric-connected-domination/work/algorithm.py
+```
+
+These finite checks exercise construction and recovery. The general claim rests on the written proof.
+
+## Artifacts
+
+- [Fixed question](campaigns/planar-three-sat-geometric-connected-domination/question.md)
+- [Campaign state](campaigns/planar-three-sat-geometric-connected-domination/state.md)
+- [Manuscript](campaigns/planar-three-sat-geometric-connected-domination/work/manuscript.pdf)
+- [Construction and recovery](campaigns/planar-three-sat-geometric-connected-domination/work/algorithm.py)
+- [General proof](campaigns/planar-three-sat-geometric-connected-domination/work/proof.md)
+- [Independent review](campaigns/planar-three-sat-geometric-connected-domination/reviews/deterministic-repair/review.md)
+- [Verification evidence](campaigns/planar-three-sat-geometric-connected-domination/work/verification.md)
+- [Round-accounting audit](campaigns/planar-three-sat-geometric-connected-domination/work/round-accounting-audit.md)
