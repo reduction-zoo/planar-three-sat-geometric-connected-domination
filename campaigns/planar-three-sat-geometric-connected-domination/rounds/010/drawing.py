@@ -15,11 +15,7 @@ bridge = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bridge)
 
 
-def checked_layout(core):
-    # ponytail: tsmpy recurses through faces; use an iterative drawing backend if very large inputs exhaust the Python stack.
-    sys.setrecursionlimit(max(sys.getrecursionlimit(), 4 * len(core) + 1000))
-    layout = TSM(core, uselp=False)
-    drawn, pos = layout.G, layout.pos
+def validate_layout(core, drawn, pos):
     assert set(core) <= set(drawn)
     assert len(set(pos.values())) == len(pos)
     occupancy = {}
@@ -45,6 +41,13 @@ def checked_layout(core):
         reduced.remove_node(v)
     assert set(map(frozenset, reduced.edges)) == set(map(frozenset, core.edges))
     return drawn, pos
+
+
+def checked_layout(core):
+    # ponytail: tsmpy recurses through faces; use an iterative drawing backend if very large inputs exhaust the Python stack.
+    sys.setrecursionlimit(max(sys.getrecursionlimit(), 4 * len(core) + 1000))
+    layout = TSM(core, uselp=False)
+    return validate_layout(core, layout.G, layout.pos)
 
 
 if __name__ == "__main__":
