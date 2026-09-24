@@ -1,6 +1,6 @@
 # Campaign state
 
-Status: resumed on 2026-09-24 with 20 additional authorized rounds (021–040). Total authorized budget: 40 rounds; completed: 31. Distinct construction route families attempted: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
+Status: resumed on 2026-09-24 with 20 additional authorized rounds (021–040). Total authorized budget: 40 rounds; completed: 32. Distinct construction route families attempted: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
 Board source: d56f22aee71c281b1a9b7aa90e65a0d2607efdce.
 
 Capability probe (2026-09-23, local macOS): Python 3.12.14 at `/Users/xiweipan/.local/bin/python3` available; uv 0.12.17 at `/Users/xiweipan/.local/bin/uv` available; Z3 executable 5.1.0 at `/opt/homebrew/bin/z3` available; Kissat 4.0.4 at `/opt/homebrew/bin/kissat` available; cvc5, Minisat and CP-SAT executables absent; Typst 0.15.1 at `/opt/homebrew/bin/typst` available; Lean 4.34.0 and Lake 5.0.0 at `/opt/homebrew/bin/lean` and `/opt/homebrew/bin/lake` available; Mathlib installation unconfirmed (pending if formalization is requested); external writing skill `sci-brain:how-to-technical-writing` present at `/Users/xiweipan/.codex/plugins/cache/sci-brain/sci-brain/0.5.0/skills/how-to-technical-writing/SKILL.md`. Prepare locked Python bindings Z3 5.1.0.0 and NetworkX 3.7 in `uv.lock`.
@@ -51,3 +51,4 @@ Next action: independently solve nontrivial geometric targets and discharge the 
 | 029 | General rectangularization premise and corner potential | All 163 biconnected planar degree-four atlas graphs | finite support; exterior weak-face proof gap remains | [round](rounds/029/round.md) |
 | 030 | Visibility drawing via ear-insertion st-order | Order, bimodality and dual DAG on 163 atlas graphs | supported combinatorial interface | [round](rounds/030/round.md) |
 | 031 | Integer bar visibility with exterior st column | All forbidden segment/bar intersections on 174 graphs | supported exact visibility interface | [round](rounds/031/round.md) |
+| 032 | Exhaustive finite strip-routing certificates | All 46 degree-2..4 incidence patterns | supported complete local interface | [round](rounds/032/round.md) |
