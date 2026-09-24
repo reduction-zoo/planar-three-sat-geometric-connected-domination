@@ -15,3 +15,5 @@ When degree bounds leave only finitely many local incidence patterns, a checked 
 ## Use history
 
 Created 2026-09-24; intended board promotion requires separate authorization.
+
+Round 033 composed all templates with integer visibility bars and validated 174 complete orthogonal embeddings. Scale 20, half-height four and four-unit end margins separate all strips and unrelated edges. The argument gives O(V) bends/coordinate magnitude and O(V²) total route length, assuming the standard visibility representation and biconnected input premise. Independent review remains pending.
