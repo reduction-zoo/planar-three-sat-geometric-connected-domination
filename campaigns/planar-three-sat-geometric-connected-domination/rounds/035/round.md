@@ -11,3 +11,7 @@ The small behavioral test passed, but the first coordinate restriction with full
 ### Quotient rank attempt
 
 A second real encoding excluded degree-one choices from the allowed set, forced singleton dominators and articulation vertices, contracted connected forced sets, and imposed decreasing ranks toward one root. It passed the same small behavior checks, but did not finish the clause-bearing target and was interrupted (about 350 MB RSS at a probe). As before, interruption is an execution failure and supplies no target answer. The retained implementation is committed before trying a target-only recognition of subdivided backbones. The latter remains only a witness heuristic; all produced index sets must pass the actual target's full graph conditions.
+
+## Evidence and diagnosis
+
+The small behavioral checks passed for both encodings. Neither produced a clause-bearing witness before its documented interruption. Their outputs remain unknown. Experience extraction: none; these execution failures extend the existing encoding-sensitivity observation without a confirmed new obstruction. Next action: a different target-only witness algorithm that recognizes and contracts subdivided grid backbones before solving a much smaller connected-cover subproblem. It must validate every lifted witness on the full input graph and must never turn recognition/search failure into NO-SOLUTION.
