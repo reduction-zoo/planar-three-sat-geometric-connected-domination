@@ -1,13 +1,13 @@
 # Campaign state
 
-Status: resumed on 2026-09-24 with 20 additional authorized rounds (021–040). Total authorized budget: 40 rounds; completed: 38; round 039 repair checks running. Distinct construction route families attempted: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
+Status: resumed on 2026-09-24 with 20 additional authorized rounds (021–040). Total authorized budget: 40 rounds; completed: 39. Distinct construction route families attempted: 4 (Lichtenstein row/ground/clause; local ground/literal cell with equality wire; later Grid Tiling unit-disk construction; planar-cover to grid connected domination).
 Board source: d56f22aee71c281b1a9b7aa90e65a0d2607efdce.
 
 Capability probe (2026-09-23, local macOS): Python 3.12.14 at `/Users/xiweipan/.local/bin/python3` available; uv 0.12.17 at `/Users/xiweipan/.local/bin/uv` available; Z3 executable 5.1.0 at `/opt/homebrew/bin/z3` available; Kissat 4.0.4 at `/opt/homebrew/bin/kissat` available; cvc5, Minisat and CP-SAT executables absent; Typst 0.15.1 at `/opt/homebrew/bin/typst` available; Lean 4.34.0 and Lake 5.0.0 at `/opt/homebrew/bin/lean` and `/opt/homebrew/bin/lake` available; Mathlib is not on the current Lean search path (`import Mathlib` failed on 2026-09-24); no formalization requested; external writing skill `sci-brain:how-to-technical-writing` present at `/Users/xiweipan/.codex/plugins/cache/sci-brain/sci-brain/0.5.0/skills/how-to-technical-writing/SKILL.md`. Prepare locked Python bindings Z3 5.1.0.0 and NetworkX 3.7 in `uv.lock`.
 
 Prepare: [contract](work/contract.md), [112 fixed cases](work/cases.json), [oracles](work/check.py), [evidence](work/preparation.md). Self-test passed on 2026-09-23. The later candidate is linked below.
 
-Current claim: executable F/G and a candidate general proof now include an explicit polynomial visibility drawing fallback. The full prepared loop passed 112 sources and 209 target outputs (195 witnesses, 14 exact NO-SOLUTION outputs). Independent review returned revise for hash-dependent drawing order; round 039 repairs that defect and reruns affected checks. No accepted complete rule or manuscript is claimed yet.
+Current claim: executable F/G and a candidate general proof now include an explicit polynomial visibility drawing fallback. The full prepared loop passed 112 sources and 209 target outputs (195 witnesses, 14 exact NO-SOLUTION outputs). Independent review returned revise for hash-dependent drawing order; round 039 repaired that defect and passed the complete prepared, alternate-output and cross-seed checks; focused re-review is pending. No accepted complete rule or manuscript is claimed yet.
 
 Checks and limits: preparation passed with 112 independently exhaustive-checked source labels. Current F targets include 97 nontrivial geometric positives with two target-only independently found and full-graph validated witnesses each, plus one trivial positive and 14 exactly solved trivial negatives. Twelve separately constructed side-chain outputs passed full target validation and fresh G recovery. Maximum actual target size: 202,170 points. The explicit fallback has 46 complete finite port certificates, 174 complete layout checks, and four forced-operation-exhaustion checks; the compact branch passed all 111 prepared cores. General correctness remains a proof/review obligation, and no nontrivial geometric NO instance has been independently certified. Full details and retained failures are in [verification](work/verification.md).
 
@@ -16,7 +16,7 @@ Prior stopping diagnosis in [round 007](rounds/007/round.md) was premature: its 
 
 Experience to date: 9 distinct local entries (3 created in the additional allocation); two pre-existing entries updated in this allocation, with further use-history updates within the three new entries; 0 pending extraction. No entry was promoted to the board. New entries: [backend contract](../../research/experience/orthogonal-drawing-backend-contract.md), [separator oracle](../../research/experience/separator-connected-domination-oracle.md), [finite templates](../../research/experience/finite-port-template-stretching.md).
 
-Next action: finish round-039 deterministic reconstruction checks, then focused independent re-review. Round 040 remains after the current repair. Prospects within that budget are unknown (uncalibrated): executable verification now passes, and the reviewer found a concrete dependency-ordering defect that must be closed. No publication or board update is authorized.
+Next action: round-040 focused independent re-review of the repaired candidate. One research round remains. Prospects within that budget are unknown (uncalibrated): executable verification now passes, and the reviewer found a concrete dependency-ordering defect that must be closed. No publication or board update is authorized.
 
 
 | Round | Mechanism / scope | First check | Outcome | Evidence |
@@ -61,3 +61,4 @@ Next action: finish round-039 deterministic reconstruction checks, then focused 
 | 037 | Full prepared verification with independent cover folding | 209 tiny cover budgets, then all 112 F/solve/G cases | supported: 195 witnesses, 14 exact NO outputs, 12 side-chain checks | [round](rounds/037/round.md) |
 
 | 038 | Independent complete-rule assessment | Fresh reviewer audit and cross-seed public F | refuted deterministic F on a legal 15-variable fallback source; revise | [round](rounds/038/round.md) |
+| 039 | Stable traversal and compact integer relabeling | Retained failing public-F prefix, then cross-seed F/solve/G | supported: repaired prefix, 330,596-point fallback recovery, 112 prepared and 12 side-chain cases | [round](rounds/039/round.md) |
