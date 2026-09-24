@@ -1,0 +1,3 @@
+7 {'core_size': 1292, 'drawing_vertices': 7396, 'position_sha256': '44770418cd0c3981fb684aaffe4399208c338cf4f07dd3f3f55a94328ebb97d3', 'route_length': 17180282}
+99 {'core_size': 1292, 'drawing_vertices': 7396, 'position_sha256': '44770418cd0c3981fb684aaffe4399208c338cf4f07dd3f3f55a94328ebb97d3', 'route_length': 17180282}
+PASS: original asymmetric source has identical accepted layouts under new seeds 7 and 99

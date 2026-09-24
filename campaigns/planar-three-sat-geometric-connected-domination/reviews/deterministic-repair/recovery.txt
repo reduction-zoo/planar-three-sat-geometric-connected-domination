@@ -1,0 +1,57 @@
+{
+  "source": {
+    "variables": 2,
+    "clauses": [
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        -1,
+        -2,
+        -2
+      ]
+    ],
+    "embedding": {
+      "v0": [
+        "c0",
+        "c1"
+      ],
+      "v1": [
+        "c0",
+        "c1"
+      ],
+      "c0": [
+        "v0",
+        "v1"
+      ],
+      "c1": [
+        "v0",
+        "v1"
+      ]
+    }
+  },
+  "points": 12418,
+  "K": 6515,
+  "selected": 6515,
+  "target_sha256": "4c6e7617822453e60ba8c92393f490251bde5e6ee809e9a551c1903e410527fb",
+  "F_seeds": [
+    7,
+    99
+  ],
+  "G_seeds": [
+    123,
+    456
+  ],
+  "recovered": [
+    [
+      false,
+      true
+    ],
+    [
+      false,
+      true
+    ]
+  ]
+}
