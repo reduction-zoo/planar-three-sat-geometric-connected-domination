@@ -1,0 +1,8 @@
+[project]
+name = "geometric-connected-domination-research"
+version = "0.1.0"
+requires-python = ">=3.12, <3.13"
+dependencies = [
+    "networkx>=3.7",
+    "z3-solver>=5.1.0.0",
+]
