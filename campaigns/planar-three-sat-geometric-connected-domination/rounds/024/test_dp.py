@@ -15,7 +15,7 @@ def brute(graph):
 def main():
     count = 0
     for graph in nx.graph_atlas_g():
-        if not 0 < len(graph) <= 5 or not nx.is_connected(graph):
+        if not 0 < len(graph) <= 6 or not nx.is_connected(graph):
             continue
         answer = solve_graph(graph)
         assert len(answer) == brute(graph), (list(graph.edges), answer, brute(graph))

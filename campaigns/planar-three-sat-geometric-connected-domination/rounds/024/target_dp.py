@@ -25,7 +25,7 @@ def union_partition(parts):
     return tuple(sorted(result))
 
 
-def solve_root(graph, tree, root, bound):
+def solve_root(graph, tree, root, bound, forced):
     bit = {v: 1 << v for v in graph}
     neighbors = {v: sum(bit[u] for u in graph[v]) for v in graph}
     start = next(iter(tree))
@@ -51,7 +51,8 @@ def solve_root(graph, tree, root, bound):
             adjacent = neighbors[v] & sum(bit[u] for u in bag)
             for (dominated, parts), (cost, witness) in table.items():
                 selected = sum(parts)
-                put(updated, (dominated | (bit[v] if adjacent & selected else 0), parts), (cost, witness), bound)
+                if v not in forced:
+                    put(updated, (dominated | (bit[v] if adjacent & selected else 0), parts), (cost, witness), bound)
                 merged = bit[v]
                 separate = []
                 for part in parts:
@@ -106,7 +107,7 @@ def solve_graph(graph, bound=None, verbose=False):
         roots = [v, *graph[v]]
     best = None
     for root in roots:
-        result, peak = solve_root(graph, tree, root, bound)
+        result, peak = solve_root(graph, tree, root, bound, set(articulations))
         if verbose:
             print('width', width, 'root', root, 'peak states', peak, 'optimum', None if result is None else result[0], flush=True)
         if result is not None and (best is None or result[0] < best[0]):

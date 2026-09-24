@@ -15,3 +15,5 @@ Measure separator width before abandoning independent target solving. Global SAT
 ## Use history
 
 Created 2026-09-24. Intended destination is the board experience collection after separate authorization; no board write made.
+
+Round 025 strengthened the oracle with mandatory articulation selections and matched all 143 connected atlas graphs through six vertices. A 6,369-point clause-bearing target still exceeded 4.6 GB during a join and was interrupted. This limits the empirical claim; target answer remained unknown. Forced-vertex pruning did not remove the exponential-width bottleneck.
