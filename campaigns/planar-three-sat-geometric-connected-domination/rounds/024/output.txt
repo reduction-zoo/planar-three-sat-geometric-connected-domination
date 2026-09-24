@@ -1,0 +1,3 @@
+target vertices 1596 budget 857
+width 7 root 66 peak states 119810 optimum 857
+independent exact target answer decoded [True]
