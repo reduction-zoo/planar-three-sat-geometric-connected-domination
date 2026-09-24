@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="350" viewBox="0 0 380 350">
+<rect width="100%" height="100%" fill="white"/>
+<line x1="190.0" y1="123.0" x2="243.6935750346352" y2="154.0" stroke="black" stroke-width="2"/>
+<line x1="243.6935750346352" y1="154.0" x2="243.69357503463522" y2="216.0" stroke="black" stroke-width="2"/>
+<line x1="243.69357503463522" y1="216.0" x2="190.0" y2="247.0" stroke="black" stroke-width="2"/>
+<line x1="190.0" y1="247.0" x2="136.3064249653648" y2="216.00000000000003" stroke="black" stroke-width="2"/>
+<line x1="136.3064249653648" y1="216.00000000000003" x2="136.3064249653648" y2="154.0" stroke="black" stroke-width="2"/>
+<line x1="136.3064249653648" y1="154.0" x2="190.0" y2="123.0" stroke="black" stroke-width="2"/>
+<line x1="190.0" y1="42.0" x2="313.84163274117475" y2="256.5" stroke="black" stroke-width="2"/>
+<line x1="313.84163274117475" y1="256.5" x2="66.1583672588253" y2="256.50000000000006" stroke="black" stroke-width="2"/>
+<line x1="66.1583672588253" y1="256.50000000000006" x2="190.0" y2="42.0" stroke="black" stroke-width="2"/>
+<line x1="190.0" y1="123.0" x2="190.0" y2="42.0" stroke="black" stroke-width="2"/>
+<line x1="243.69357503463522" y1="216.0" x2="313.84163274117475" y2="256.5" stroke="black" stroke-width="2"/>
+<line x1="136.3064249653648" y1="216.00000000000003" x2="66.1583672588253" y2="256.50000000000006" stroke="black" stroke-width="2"/>
+<circle cx="190.0" cy="123.0" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="243.6935750346352" cy="154.0" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="243.69357503463522" cy="216.0" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="190.0" cy="247.0" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="136.3064249653648" cy="216.00000000000003" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="136.3064249653648" cy="154.0" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="190.0" cy="42.0" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="313.84163274117475" cy="256.5" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="66.1583672588253" cy="256.50000000000006" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<text x="190.0" y="151.0" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">T0</text>
+<text x="224.64101615137753" y="171.0" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">F0</text>
+<text x="224.64101615137756" y="211.0" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">T1</text>
+<text x="190.0" y="231.0" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">F1</text>
+<text x="155.35898384862247" y="211.0" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">T2</text>
+<text x="155.35898384862247" y="171.0" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">F2</text>
+<text x="190.0" y="23.0" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">c0</text>
+<text x="335.4922678357857" y="275.0" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">c1</text>
+<text x="44.50773216421433" y="275.00000000000006" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">c2</text>
+</svg>

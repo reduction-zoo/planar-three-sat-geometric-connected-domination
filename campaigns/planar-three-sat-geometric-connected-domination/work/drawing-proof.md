@@ -1,6 +1,6 @@
 # Drawing construction and bounds
 
-This candidate argument reconstructs Tamassia–Tollis, [*A Unified Approach to Visibility Representations of Planar Graphs* (1986), Algorithm W-VISIBILITY, p. 328, Theorem 1, p. 330](https://workshop.tcs.uj.edu.pl/mszana2015/gutkraw/unified.pdf), also presented in [Duncan–Goodrich, §7.2.3](https://cs.brown.edu/people/rtamassi/gdhandbook/chapters/orthogonal.pdf), and replaces each bar by one of 46 explicitly checked constant templates. It requires a biconnected planar graph of maximum degree four with at least three vertices. The reduction's core premise is proved in `proof.md`. No independent review has yet accepted this argument.
+This candidate argument reconstructs Tamassia–Tollis, [*A Unified Approach to Visibility Representations of Planar Graphs* (1986), Algorithm W-VISIBILITY, p. 328, Theorem 1, p. 330](https://workshop.tcs.uj.edu.pl/mszana2015/gutkraw/unified.pdf), also presented in [Duncan–Goodrich, §7.2.3](https://cs.brown.edu/people/rtamassi/gdhandbook/chapters/orthogonal.pdf), and replaces each bar by one of 46 explicitly checked constant templates. It requires a biconnected planar graph of maximum degree four with at least three vertices. The reduction's core premise is proved in `proof.md`. The [focused independent review](../reviews/deterministic-repair/review.md) returned advance after repairing and rechecking deterministic traversal. Expert assessment remains external.
 
 ## Ordering and visibility
 

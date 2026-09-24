@@ -6,3 +6,4 @@ __pycache__/
 campaigns/*/reviews/*/target-*.json
 campaigns/*/reviews/*/fallback-target-*.json
 campaigns/*/reviews/*/isolates-target-*.json
+campaigns/*/work/evidence/manuscript/rendered/

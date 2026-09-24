@@ -1,6 +1,6 @@
 # Executable verification
 
-Candidate: [algorithm.py](algorithm.py), [proof.md](proof.md), and [drawing proof](drawing-proof.md). The maps use the round-034 bounded compact-layout attempt and explicit visibility fallback. Dependencies are locked in `uv.lock`. The first independent review found hash-sensitive drawing order; round 039 repaired it, and focused re-review is pending.
+Candidate: [algorithm.py](algorithm.py), [proof.md](proof.md), and [drawing proof](drawing-proof.md). The maps use the round-034 bounded compact-layout attempt and explicit visibility fallback. Dependencies are locked in `uv.lock`. The first independent review found hash-sensitive drawing order; round 039 repaired it, and the [focused independent review](../reviews/deterministic-repair/review.md) returned advance.
 
 ## Complete prepared loop
 
@@ -35,3 +35,7 @@ Earlier layered reachability, unrestricted connectivity cuts, CP-SAT flow, plate
 ## Deterministic reconstruction repair
 
 [Round 039](../rounds/039/round.md) preserves the independent review's failing hash-seed counterexample and then checks identical accepted fallback layouts under two seeds on the actual default public-F prefix (1,292 core vertices; route length 17,180,282 after repair). The large default target was not expanded. A real zero-operation-allowance launcher forces the fallback on source 1: two fresh F seeds emit the same 330,596-point target, and an independent target-only finder supplies a fully validated witness of size 165,357. Two fresh G seeds recover valid source assignments. This source has no clauses; three compact-branch cross-seed cases include clause-bearing sources. All 174 fallback layouts were revalidated. See [reconstruction records](../rounds/039/reconstruction.json).
+
+## Review and manuscript closeout
+
+The reviewer independently repeated the large default-source drawing check with seeds 7 and 99 and independently solved a new clause-bearing 12,418-point target (K=6,515), recovering `[false, true]` under seeds 123 and 456. See the [advance report](../reviews/deterministic-repair/review.md). The [eight-page paper](manuscript.pdf) compiled with Typst 0.15.1; all pages were visually inspected after the final language/notation pass. Figure checks cover the exact clause ports/cover, complete 45-vertex face augmentation, and all unit adjacencies of the local 18-point grid route. [Inspection record](evidence/manuscript/inspection.md). No algorithm or proof mechanism changed during writing.

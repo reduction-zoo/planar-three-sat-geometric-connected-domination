@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="190" viewBox="0 0 620 190">
+<rect width="100%" height="100%" fill="white"/>
+<line x1="35" y1="115" x2="90" y2="115" stroke="black" stroke-width="2"/>
+<line x1="90" y1="115" x2="145" y2="115" stroke="black" stroke-width="2"/>
+<line x1="145" y1="115" x2="145" y2="60" stroke="black" stroke-width="2"/>
+<line x1="145" y1="115" x2="200" y2="115" stroke="black" stroke-width="2"/>
+<line x1="145" y1="60" x2="200" y2="60" stroke="black" stroke-width="2"/>
+<line x1="200" y1="115" x2="200" y2="60" stroke="black" stroke-width="2"/>
+<line x1="200" y1="115" x2="255" y2="115" stroke="black" stroke-width="2"/>
+<line x1="200" y1="60" x2="255" y2="60" stroke="black" stroke-width="2"/>
+<line x1="255" y1="115" x2="255" y2="60" stroke="black" stroke-width="2"/>
+<line x1="255" y1="115" x2="310" y2="115" stroke="black" stroke-width="2"/>
+<line x1="255" y1="60" x2="310" y2="60" stroke="black" stroke-width="2"/>
+<line x1="310" y1="115" x2="310" y2="60" stroke="black" stroke-width="2"/>
+<line x1="310" y1="115" x2="365" y2="115" stroke="black" stroke-width="2"/>
+<line x1="310" y1="60" x2="365" y2="60" stroke="black" stroke-width="2"/>
+<line x1="365" y1="115" x2="365" y2="60" stroke="black" stroke-width="2"/>
+<line x1="365" y1="115" x2="420" y2="115" stroke="black" stroke-width="2"/>
+<line x1="365" y1="60" x2="420" y2="60" stroke="black" stroke-width="2"/>
+<line x1="420" y1="115" x2="420" y2="60" stroke="black" stroke-width="2"/>
+<line x1="420" y1="115" x2="475" y2="115" stroke="black" stroke-width="2"/>
+<line x1="420" y1="60" x2="475" y2="60" stroke="black" stroke-width="2"/>
+<line x1="475" y1="115" x2="475" y2="60" stroke="black" stroke-width="2"/>
+<line x1="475" y1="115" x2="530" y2="115" stroke="black" stroke-width="2"/>
+<line x1="530" y1="115" x2="585" y2="115" stroke="black" stroke-width="2"/>
+<rect x="29" y="109" width="12" height="12" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="90" cy="115" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="145" cy="115" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="145" cy="60" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="200" cy="115" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="200" cy="60" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="255" cy="115" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="255" cy="60" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="310" cy="115" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="310" cy="60" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="365" cy="115" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="365" cy="60" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="420" cy="115" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="420" cy="60" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="475" cy="115" r="5.5" fill="black" stroke="black" stroke-width="2"/>
+<circle cx="475" cy="60" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="530" cy="115" r="5.5" fill="white" stroke="black" stroke-width="2"/>
+<rect x="579" y="109" width="12" height="12" fill="black" stroke="black" stroke-width="2"/>
+<text x="35" y="150" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">u</text>
+<text x="585" y="150" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">v</text>
+<text x="90" y="174" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">connector</text>
+<text x="530" y="174" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">connector </text>
+<text x="310" y="153" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">middle path points</text>
+<text x="310" y="29" text-anchor="middle" font-family="Libertinus Serif,serif" font-size="19" paint-order="stroke" stroke="white" stroke-width="3">side points</text>
+</svg>
