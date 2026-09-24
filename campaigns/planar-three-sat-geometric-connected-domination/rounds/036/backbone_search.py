@@ -6,6 +6,8 @@ import z3
 
 sys.path.insert(0, str(Path(__file__).parents[1] / '035'))
 from lattice_search import graph_from_points
+sys.path.insert(0, str(Path(__file__).parents[1] / '037'))
+from cover_kernel import vertex_cover
 
 
 def find_witness(target, forbidden=()):
@@ -58,9 +60,15 @@ def find_witness(target, forbidden=()):
         if degree == 1:
             solver.add(z3.Not(variables[v]))
     rejected = {frozenset(answer) for answer in forbidden}
-    while solver.check() == z3.sat:
-        model = solver.model()
-        cover = {v for v, var in variables.items() if z3.is_true(model.eval(var))}
+    forced = set(nx.articulation_points(skeleton))
+    proposal = vertex_cover(skeleton.subgraph(set(skeleton) - forced), cover_budget - len(forced))
+    def covers():
+        if proposal is not None:
+            yield proposal | forced
+        while solver.check() == z3.sat:
+            model = solver.model()
+            yield {v for v, var in variables.items() if z3.is_true(model.eval(var))}
+    for cover in covers():
         components = list(nx.connected_components(skeleton.subgraph(cover)))
         if len(components) != 1:
             for component in components:

@@ -15,3 +15,5 @@ Account for library recursion depth when claiming a polynomial executable drawin
 ## Use history
 
 - 2026-09-24: extracted from round 016; intended destination if promoted is the board's local shared experience collection, with no board edit during research.
+
+Rounds 021 and 034 reused this limitation during backend-contract design. The current candidate confines tsmpy to a fixed small-core, fixed-operation attempt and uses explicit visibility routing after any failure or for larger cores. Four forced-exhaustion tests exercised that route. The earlier recursion repair remains valid historical evidence; it is no longer the all-input justification.

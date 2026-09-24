@@ -1,27 +1,33 @@
-# Verification scope at the 20-round limit
+# Executable verification
 
-Candidate: [`algorithm.py`](algorithm.py) and [`proof.md`](proof.md), with locked dependencies in the repository `uv.lock`. The executable chain was last changed before round 020; this record describes the committed candidate plus the final standalone verifier. It is **not** a passing full-corpus verification.
+Candidate: [algorithm.py](algorithm.py), [proof.md](proof.md), and [drawing proof](drawing-proof.md). The maps use the round-034 bounded compact-layout attempt and explicit visibility fallback. Dependencies are locked in `uv.lock`. Independent review remains pending.
 
-## Independently solved actual targets
+## Complete prepared loop
 
-Run `uv sync --locked`, then:
+Run from the repository root:
 
 ```sh
-uv run --locked python campaigns/planar-three-sat-geometric-connected-domination/work/verify.py --candidate campaigns/planar-three-sat-geometric-connected-domination/work/algorithm.py
+uv sync --locked
+uv run --locked python campaigns/planar-three-sat-geometric-connected-domination/work/check.py --self-test
+uv run --locked python campaigns/planar-three-sat-geometric-connected-domination/work/check.py --candidate campaigns/planar-three-sat-geometric-connected-domination/work/algorithm.py
 ```
 
-`verify.py` imports neither the candidate nor the prepared oracle. It executes both candidate modes as subprocesses, builds the small target graph with exact rational arithmetic, exhaustively searches connected dominating subsets within `K`, and exhaustively checks source satisfiability. It solved 15 actual F-produced one-point targets: one positive witness and 14 negative `NO-SOLUTION` outputs. All 15 recovered source outputs were valid. Case IDs are 0, 4, 6, 11, 15, 43, 63, 66, 72, 78, 88, 94, 101, 103 and 111.
+[Round 037](../rounds/037/round.md) passed all 112 fixed sources: 98 satisfiable and 14 unsatisfiable. The actual F-produced targets yielded 195 valid witness outputs and 14 exact NO-SOLUTION outputs. Each output went through a fresh G process and independent source validation. All 97 nontrivial geometric positive targets supplied two distinct witnesses; the empty source supplied its one-point witness. The 14 negative sources take the sound unit-contradiction shortcut and were solved exactly as K=0 one-point targets. The largest actual target had 202,170 points. [Full output](../rounds/037/prepared-kernel.txt).
 
-## Validated but not independently solved geometric targets
+The source labels remain the original independently exhaustive-checked labels. The optional target witness finder reads only actual coordinates: it recognizes a subdivided backbone, runs ordinary vertex-cover folding and a connected-cover search, then lifts candidate indices. It imports no candidate implementation or source instance. It is incomplete and returns only a fully validated witness or unknown. The unchanged complete Z3 target oracle handles cases where no witness is found; restricted UNSAT never becomes NO-SOLUTION. The prepared target validator independently builds exact rational-distance adjacency, separate from the finder's integer-grid recognition. The vertex-cover kernel matched all 209 graph-atlas optimum/below-optimum budgets through six vertices.
 
-The prepared source foundation contains 112 cases, 100 seeded random and 12 edge cases; its independent source checks pass. The geometry experiments checked 111 nonempty generated point sets before the unit-contradiction shortcut and constructed valid exact-budget connected dominating sets for 98 prepared SAT cases. The round-012 decoder check recovered from 97 nonempty canonical witnesses. The round-018 script created 12 distinct exact-budget side-chain witnesses across 1,596–202,170 target points, validated each from its target coordinates with the independent target witness checker, and executed recovery in a fresh process; all 12 recovered satisfying assignments. These target witnesses were derived from known source assignments, so their existence was **not** established by an independent target solver.
+## Additional independent and arbitrary-output evidence
 
-The full `check.py --candidate ...` run did not finish on the first large positive target. Its initial time-indexed connectivity encoding was interrupted after memory rose to about 7.7 GB; a sparse exact replacement stayed below about 280 MB in the observed run but returned no answer before interruption. An independent CP-SAT flow model matched five small target cases but likewise returned no answer on the 1,596-point candidate target before interruption. Both are execution failures, never NO certificates. No prepared nontrivial geometric target has been independently solved as an instance.
+`verify.py --candidate .../algorithm.py` imports neither candidate nor prepared checker and exhaustively solves the 15 actual one-point targets (one YES, 14 NO) and checks source outputs. Round 024 separately implemented an exact graph-only separator CDS oracle, checked against all 31 connected atlas graphs through five vertices (later 143 through six), and solved the 1,596-point target at minimum size 857. Round 036 independently found and checked two 3,337-point witnesses for a clause-bearing 6,369-point target; the later kernel version passed the same recovery regression.
 
-## Open obligations
+The round-018 side-chain script constructs noncanonical witnesses from known source assignments, then independently validates the full actual target and invokes G in a fresh process. These are decoder-coverage checks, not independent evidence of target existence. The current round-037 rerun passed all 12 distinct side-chain witnesses on targets of 1,596–202,170 points; see [side-chains.txt](../rounds/037/side-chains.txt).
 
-- Demonstrate that the chosen orthogonal drawing implementation returns a valid polynomial-size point-vertex layout for every legal generated core. A recursion failure on a legal 20-clause chain was repaired and the exact validator passed 24 structured stress cases; 111 prepared cores also passed. A second backend independently produced valid routes on all 135 finite cores, but neither package has an audited all-input guarantee here.
-- Independently solve representative nontrivial positive and negative geometric targets, run the full prepared F/G candidate suite, and search for counterexamples beyond it. The negative cases currently take a sound unit-propagation shortcut and therefore do not exercise geometric NO instances.
-- Subject the complete rule to independent correctness, novelty and significance review after the prior obligations are met. No manuscript or formal proof was requested or produced.
+## Drawing evidence
 
-Observed maximum prepared geometric target size was 202,170 points; this is an output-size measurement, not a worst-case runtime or bit-size proof. The working proof gives polynomial bounds conditional on a certified drawing implementation. No publication or board update occurred.
+All 46 finite port-pattern certificates pass an independent exhaustive pattern/path validator. The visibility route passes 163 biconnected planar degree-four atlas graphs plus 11 initial prepared cores (174 complete exact layout checks). The bounded wrapper passes four real forced-operation-exhaustion fallback cases and all 111 nonempty prepared cores. These checks support the explicit argument in `drawing-proof.md`; they do not replace that argument or independent review.
+
+## Limits and retained failures
+
+The corpus has at most six source variables and does not cover every planar embedding. All independently solved negative actual targets use the contradiction shortcut; no nontrivial geometric NO target has been independently certified. Target witness search is specialized and incomplete, with exact fallback, and no general practical solver-efficiency claim is made. The exact CDS separator oracle still failed by resource exhaustion on a 6,369-point clause-bearing case before the structural witness method succeeded.
+
+Earlier layered reachability, unrestricted connectivity cuts, CP-SAT flow, plateau pruning, and restricted rank searches had interrupted or inconclusive runs. These remain execution failures, never negative oracle answers; records are preserved in rounds 013–014, 022, 025, 035 and the first round-037 prefix. Finite passing checks establish the stated instances and outputs only. Correctness for all legal inputs and valid target outputs depends on the general proof and its pending independent review. No formal proof, publication, remote or board update has been made.

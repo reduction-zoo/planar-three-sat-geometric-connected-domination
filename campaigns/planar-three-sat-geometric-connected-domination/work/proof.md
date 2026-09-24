@@ -1,6 +1,6 @@
 # Working proof of the composed reduction
 
-Status: **candidate general argument; independent review pending**. The drawing interface now has an explicit polynomial visibility fallback, described in [drawing-proof.md](drawing-proof.md). Independent nontrivial target solving has succeeded on one 1,596-point positive; full prepared verification remains pending. Negative F targets from unit contradictions have been solved exactly.
+Status: **candidate general argument; independent review pending**. The drawing interface now has an explicit polynomial visibility fallback, described in [drawing-proof.md](drawing-proof.md). The full prepared verification passed 112 instances and 209 target outputs, including 97 geometric positive targets with two witnesses each. Negative F targets from unit contradictions have been solved exactly.
 
 ## Contract and maps
 

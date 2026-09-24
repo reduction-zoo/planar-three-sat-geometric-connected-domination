@@ -1,0 +1,13 @@
+1 1596 alternate decoded
+2 6369 alternate decoded
+7 8231 alternate decoded
+16 40605 alternate decoded
+17 57861 alternate decoded
+21 119912 alternate decoded
+49 191556 alternate decoded
+52 141334 alternate decoded
+84 100790 alternate decoded
+97 119910 alternate decoded
+110 116892 alternate decoded
+13 202170 alternate decoded
+validated distinct side-chain outputs: [1, 2, 7, 16, 17, 21, 49, 52, 84, 97, 110, 13]
