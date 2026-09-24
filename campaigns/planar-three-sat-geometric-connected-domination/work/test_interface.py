@@ -60,4 +60,13 @@ alternate_indices = [index[point] for point in alternate]
 assert check.target_witness_valid(target, alternate_indices)
 recovered = check.run_candidate(candidate, ["--extract"], {"source": source, "target_solution": alternate_indices})
 assert check.source_witness_valid(source, recovered)
-print("empty, canonical and side-chain F/G subprocesses passed independent target-witness checks")
+negative = 0
+for case in cases:
+    if case["expected"] == "NO-SOLUTION":
+        source = case["source"]
+        target = check.run_candidate(candidate, [], source)
+        assert check.target_answer(target) == "NO-SOLUTION"
+        answer = check.run_candidate(candidate, ["--extract"], {"source": source, "target_solution": "NO-SOLUTION"})
+        assert check.source_witness_valid(source, answer)
+        negative += 1
+print(f"empty, canonical, side-chain and {negative} negative F/G subprocess cases passed independent target checks")

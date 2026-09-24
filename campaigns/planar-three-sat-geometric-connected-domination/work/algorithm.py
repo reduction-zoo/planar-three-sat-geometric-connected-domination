@@ -15,7 +15,35 @@ grid = decoder.grid
 bridge = grid.drawing.bridge
 
 
+def unit_contradiction(clauses):
+    assignment = {}
+    simplified = []
+    for clause in clauses:
+        literals = set(clause)
+        if not any(-lit in literals for lit in literals):
+            simplified.append(literals)
+    while True:
+        units = []
+        for clause in simplified:
+            if any(assignment.get(abs(lit)) == (lit > 0) for lit in clause):
+                continue
+            remaining = [lit for lit in clause if abs(lit) not in assignment]
+            if not remaining:
+                return True
+            if len(remaining) == 1:
+                units.append(remaining[0])
+        if not units:
+            return False
+        for lit in units:
+            variable, value = abs(lit), lit > 0
+            if variable in assignment and assignment[variable] != value:
+                return True
+            assignment[variable] = value
+
+
 def construction(source):
+    if unit_contradiction(source["clauses"]):
+        return {"points": [[0, 0]], "K": 0}, None
     graph, bound = bridge.cover_instance(source)
     connected, cover_bound, subdivisions, _ = bridge.connected_cover_instance(graph, bound)
     if not connected:
