@@ -1,0 +1,12 @@
+case 0: 1 target points, 1 checked outputs
+case 1: 1596 target points, 2 checked outputs
+case 2: 6369 target points, 2 checked outputs
+case 3: 6169 target points, 2 checked outputs
+case 4: 1 target points, 1 checked outputs
+case 5: 13958 target points, 2 checked outputs
+case 6: 1 target points, 1 checked outputs
+case 7: 8231 target points, 2 checked outputs
+case 8: 12198 target points, 2 checked outputs
+case 9: 13695 target points, 2 checked outputs
+case 10: 10695 target points, 2 checked outputs
+case 11: 1 target points, 1 checked outputs

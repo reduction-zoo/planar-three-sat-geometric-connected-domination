@@ -2,6 +2,7 @@
 
 import argparse
 import itertools
+import importlib.util
 import json
 import subprocess
 import sys
@@ -88,6 +89,12 @@ def target_graph(target):
 
 
 def target_answer(target, forbidden=()):
+    spec = importlib.util.spec_from_file_location("backbone_search", WORK.parent / "rounds/036/backbone_search.py")
+    finder = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(finder)
+    witness = finder.find_witness(target, forbidden)
+    if witness is not None:
+        return witness
     graph, k = target_graph(target)
     n = len(graph)
     if not nx.is_connected(graph):
@@ -184,6 +191,7 @@ def candidate_test(path):
             assert source_witness_valid(source, recovered), (index, answer, recovered)
             assert (recovered == "NO-SOLUTION") == (case["expected"] == "NO-SOLUTION"), index
             outputs["no_solution" if answer == "NO-SOLUTION" else "witness"] += 1
+        print(f"case {index}: {len(target['points'])} target points, {len(answers)} checked outputs", flush=True)
     print(f"candidate passed: {len(cases)} instances, {dict(outputs)} target outputs")
 
 
